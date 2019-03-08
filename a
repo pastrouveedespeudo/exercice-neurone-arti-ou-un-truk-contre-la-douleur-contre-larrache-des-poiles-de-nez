@@ -1,1 +1,97 @@
 
+import urllib.request
+import requests
+from bs4 import *
+
+
+def entree():
+
+    det1 = {"roue":1, "carburant":1}
+    det2 = {"vivant":1, "mammifère":1}
+
+    return det1, det2
+
+def poids():
+    un = 2
+    deux = 2
+    trois = -2
+    quattre = -2
+  
+
+
+
+class recherche_internet:
+    def recherche(self, mot):
+        self.mot = mot
+
+        liste = []
+        path = "https://fr.wikipedia.org/wiki/{}".format(self.mot)
+        
+        requete = requests.get(path)
+        page = requete.content
+        
+        soup = BeautifulSoup(page, "html.parser")
+        liste.append(soup)
+
+        return liste
+
+    def traitement_liste(self, liste):
+        dico = entree()
+        
+        for i in dico[0].items():
+            print(i)
+
+
+def calcul_poids():
+    #x1*w1 + x2*w2...
+    pass
+
+def calcul_erreur():
+    #e = sortie - notre score ex voiture = 4
+    #pour voiture et vivant
+    pass
+
+def base_donnée():
+
+    data = {"voiture":4,
+            "avion":4,
+     }
+
+
+    data2 = {"chat":-4,
+             "chien":-4
+
+
+        }        
+
+#on cherche machine
+
+
+
+
+if __name__ == "__main__":
+
+
+ 
+
+    recherche_internet = recherche_internet()
+    liste = recherche_internet.recherche("automobile")
+    recherche_internet.traitement_liste(liste)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
