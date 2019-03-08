@@ -5,25 +5,20 @@ from bs4 import *
 
 def entree():
 
-    det1 = {"roue":1, "carburant":1}
-    det2 = {"vivant":1, "mammifère":1}
+    det1 = {"roue":1, "carburant":1, "vivant":1, "mammifère":1}
 
-    return det1, det2
-
+    return det1
 
 def base_donnée():
 
     data = {"voiture":4,
-            "avion":4,
-     }
-
-
-    data2 = {"chat":-4,
-             "chien":-4
+            "camion":4,
+            "chat":-4,
+            "chien":-4
         }        
 
 
-    return data, data2
+    return data
 
 def nos_poids():
     un = 2
@@ -55,33 +50,48 @@ class activation:
     def traitement_liste(self, liste):
         dico = entree()
 
-        liste_poids = []
+        dico_poids = {}
 
+        for i in dico:
+            dico_poids[i] = 0
         
-        for i in dico[0].keys():
+
+
+        for i in dico.keys():
             recherche = str(liste).find(str(i))
             if recherche >= 0:
-                liste_poids.append(i)
-
-        for i in dico[1].keys():
-            recherche = str(liste).find(str(i))
-            if recherche >= 0:
-                liste_poids.append(i)
+                dico_poids[i] += 1
+           
+       
+        return dico_poids
 
 
-        return liste_poids
-
-
-    def calcul_poids(self):
+    def calcul_poids(self, dico_recherche):
         #x1*w1 + x2*w2...
 
-        poids = nos_poids()
-        print(poids)
+        sortie = 0
 
-    def calcul_erreur(self):
+        entre = entree()
+        poids = nos_poids()
+
+        c=0
+        for i in dico_recherche.values():
+            poid = i * poids[c]
+            sortie += poid
+            
+            c+=1
+
+        return sortie
+
+                
+    def calcul_erreur(self, sortie):
         #e = sortie - notre score ex voiture = 4
         #pour voiture et vivant
         pass
+
+    
+
+
 
 
 
@@ -95,14 +105,18 @@ class activation:
 
 if __name__ == "__main__":
 
-
+    liste = ["automobile","voiture","chat","chien",
+             "train","machine a eau", "raton","camion"]
 
     activation = activation()
     liste = activation.recherche("automobile")
-    activation.traitement_liste(liste)
-    activation.calcul_poids()
+    liste2 = activation.traitement_liste(liste)
+    sortie = activation.calcul_poids(liste2)
+    activation.calcul_erreur(sortie)
 
 #on cherche machine
+#mouais chai pas bon go retourner theorie fais lerreur et fias toute la liste 
+
 
 
 
