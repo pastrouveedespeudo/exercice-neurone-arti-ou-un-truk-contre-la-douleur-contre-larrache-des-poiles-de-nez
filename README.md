@@ -1,1 +1,3 @@
 #mais mon truk ressemble pas a leur truk eux ils font des tableaux....
+
+#antonio sait reconnaitre si c une machine ou pas !!!
