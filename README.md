@@ -1,3 +1,5 @@
-# exercice-neurone-arti-ou-un-truk-contre-la-douleur-contre-larrache-des-poiles-de-nez
+#apprendre le jargon jai compris ct quoi une tangeante ^^ jarrivais pas a comprendre avant ^^
 
-#oh puré ceux sur le coté c le pire
+#connaitre toutes les theories des stats au sigmoide forme s = f(x) = 1/1-e (si on generalise ca je sais pas ca veut dire quoi) lamba *x
+
+#et je comprend pas pas entrainé qu'est ce qye ca veut dire quoi ? pcque la c sois roue sois mamifere...
