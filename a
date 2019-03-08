@@ -1,4 +1,3 @@
-
 import urllib.request
 import requests
 from bs4 import *
@@ -11,16 +10,33 @@ def entree():
 
     return det1, det2
 
-def poids():
+
+def base_donnée():
+
+    data = {"voiture":4,
+            "avion":4,
+     }
+
+
+    data2 = {"chat":-4,
+             "chien":-4
+        }        
+
+
+    return data, data2
+
+def nos_poids():
     un = 2
     deux = 2
     trois = -2
     quattre = -2
-  
+
+    return un, deux, trois, quattre
 
 
+class activation:
 
-class recherche_internet:
+   
     def recherche(self, mot):
         self.mot = mot
 
@@ -35,51 +51,58 @@ class recherche_internet:
 
         return liste
 
+
     def traitement_liste(self, liste):
         dico = entree()
+
+        liste_poids = []
+
         
-        for i in dico[0].items():
-            print(i)
+        for i in dico[0].keys():
+            recherche = str(liste).find(str(i))
+            if recherche >= 0:
+                liste_poids.append(i)
+
+        for i in dico[1].keys():
+            recherche = str(liste).find(str(i))
+            if recherche >= 0:
+                liste_poids.append(i)
 
 
-def calcul_poids():
-    #x1*w1 + x2*w2...
-    pass
-
-def calcul_erreur():
-    #e = sortie - notre score ex voiture = 4
-    #pour voiture et vivant
-    pass
-
-def base_donnée():
-
-    data = {"voiture":4,
-            "avion":4,
-     }
+        return liste_poids
 
 
-    data2 = {"chat":-4,
-             "chien":-4
+    def calcul_poids(self):
+        #x1*w1 + x2*w2...
+
+        poids = nos_poids()
+        print(poids)
+
+    def calcul_erreur(self):
+        #e = sortie - notre score ex voiture = 4
+        #pour voiture et vivant
+        pass
 
 
-        }        
 
-#on cherche machine
 
+
+
+
+      
 
 
 
 if __name__ == "__main__":
 
 
- 
 
-    recherche_internet = recherche_internet()
-    liste = recherche_internet.recherche("automobile")
-    recherche_internet.traitement_liste(liste)
+    activation = activation()
+    liste = activation.recherche("automobile")
+    activation.traitement_liste(liste)
+    activation.calcul_poids()
 
-
-
+#on cherche machine
 
 
 
