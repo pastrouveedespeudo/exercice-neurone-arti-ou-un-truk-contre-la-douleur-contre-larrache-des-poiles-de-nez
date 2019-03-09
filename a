@@ -38,6 +38,11 @@ def nos_poids():
 
     return un, deux, trois, quattre
 
+DICO_E = {}
+def remplissage_dico_e(liste):
+    for i in liste:
+        DICO_E[i] = 0
+
 
 
 class activation:
@@ -66,8 +71,6 @@ class activation:
         for i in dico:
             dico_poids[i] = 0
         
-
-
         for i in dico.keys():
             recherche = str(liste).find(str(i))
             if recherche >= 0:
@@ -75,6 +78,7 @@ class activation:
            
        
         return dico_poids
+
 
 
     def calcul_poids(self, dico_recherche):
@@ -94,18 +98,42 @@ class activation:
         return sortie
 
                 
-    def calcul_erreur(self, mot, sortie):
-        #e = sortie - notre score ex voiture = 4
-        #pour voiture et vivant
-        
+    def calcul_erreur(self, mot, sortie, DICO_E):
+
         donnée = base_donnée()
-        print(mot)
-        print("en database:", donnée[mot])
-        print("sortie :", sortie)
+        
+        #print(mot)
+        #print("en database:", donnée[mot])
+        #print("sortie :", sortie)
 
         e = sortie - donnée[mot]
-        print("errueur:", e)
-        print("\n")
+        #print("errueur:", e)
+
+        if e > 0 or e < 0:
+            DICO_E[mot] += e
+
+
+
+
+class etape_deux:
+
+    def modification_poids(self):
+        donnée = base_donnée()
+        poids = nos_poids()
+
+        print(poids)
+
+        print(donnée)
+        print(DICO_E)
+
+        
+        for i in range(1000):
+            pass
+
+
+
+
+
 
 
 
@@ -117,9 +145,7 @@ class activation:
         #    pass
 
 
-    def modification_poids(self):
-        for i in range(1000):
-            pass
+
 
 
 if __name__ == "__main__":
@@ -128,18 +154,24 @@ if __name__ == "__main__":
              "train","machine a eau", "raton","camion"]
 
     activation = activation()
-    
+    remplissage_dico_e(liste)
+
+    etape_deux = etape_deux()    
+
     for i in liste:
         
         liste = activation.recherche(i)
         liste2 = activation.traitement_liste(liste)
         sortie = activation.calcul_poids(liste2)
-        activation.calcul_erreur(i, sortie)
+        activation.calcul_erreur(i, sortie,DICO_E)
 
 
-#met une valeur a voiture ex 2.5, et tu met les poids en random sur 100
-#et tu prend toutes les combi = a 2.5
-#faire dautre recherche sur wiki et autre
+
+    etape_deux.modification_poids()
+
+    
+
+
 
 
 
