@@ -53,11 +53,6 @@ def remplissage_dico_e_abs(liste):
     for i in liste:
         DICO_ABS[i] = 0
 
-DICO_VIVANT = {}
-def remplissage_dico_vivant(liste):
-    for i in liste:
-        DICO_VIVANT[i] = 0
-
 
 class activation:
 
@@ -114,192 +109,14 @@ class activation:
         return sortie
 
 
-                
-    def calcul_erreur(self, mot, sortie, DICO_E, DICO_ABS):
-
-        donnée = base_donnée()
-        
-        #print(mot)
-        #print("en database:", donnée[mot])
-        #print("sortie :", sortie)
-        #print("\n")
-        e = sortie - donnée[mot]
-        #print("errueur:", e)
-
-        if e > 0 or e < 0:
-
-            DICO_E[mot] += e
-            e = abs(e)
-            DICO_ABS[mot] += e
-
-
-
     def conclusion(self, sortie, i):
-
-        if sortie < 0 :
-            #print(i + " nest pas vivant")
-            DICO_VIVANT[i] += 1
-            
+        
+        if sortie > 0 :
+            print(i + " nest pas vivant")
         else:
-            #print(i + " est vivant")
-            pass
-
-            
+            print(i + " est vivant")
 
 
-    def matches(self, liste, dico):
-
-        vivant = {"vivant":0, "mammifère":0, "carburant":0,"roue":0}
-        non_vivant = {"vivant":0, "mammifère":0, "carburant":0,"roue":0}
-
-        c1 = 0
-        for cle, valeur in DICO_VIVANT.items():
-            if valeur == 1:
-      
-                for cle, valeur in liste[c1].items():
-            
-                    if valeur == 1 and cle == "vivant":
-                        vivant["vivant"] += 1
-                        
-                    elif valeur == 1 and cle == "mammifère":
-                        vivant["mammifère"] += 1
-
-                    elif valeur == 1 and cle == "carburant":
-                        vivant["carburant"] += 1
-                    
-                    elif valeur == 1 and cle == "roue":
-                        vivant["roue"] += 1
-
-                        
-            c1 += 1
-
-        c1 = 0
-        for cle, valeur in DICO_VIVANT.items():
-            if valeur == 0:
-      
-                for cle, valeur in liste[c1].items():
-            
-                    if valeur == 1 and cle == "vivant":
-                        non_vivant["vivant"] += 1
-                        
-                    elif valeur == 1 and cle == "mammifère":
-                        non_vivant["mammifère"] += 1
-
-                    elif valeur == 1 and cle == "carburant":
-                        non_vivant["carburant"] += 1
-                    
-                    elif valeur == 1 and cle == "roue":
-                        non_vivant["roue"] += 1
-                        
-            c1 += 1
-
-
-        return vivant, non_vivant
-
-
-
-    def modification_poids(self, liste, regle, viv, liste2):
-        donnée = base_donnée()
-        poids = nos_poids()
-
-        sortie = 0
-
-        net1 = []
-        cont1 = []
-        
-        net2 = []
-        cont2 = []
-
-        etre = regle[0]
-        machine = regle[1]
-
-
-        for cle, valeur in etre.items():
-            net1.append(valeur)
-        net1.sort()
-        net1 = net1[-2:]
-        
-        for i in net1:
-            cont1.append([c for c,v in etre.items() if v==i])
-
-
-
-        for cle, valeur in machine.items():
-            net2.append(valeur)    
-        net2.sort()
-        net2 = net2[-2:]
-        
-        for i in net2:
-            cont2.append([c for c,v in machine.items() if v==i])
-            
-
-        print(cont1)
-        print(cont2[0])
-
-        compteur = 0
-        for cle, valeur in DICO_ABS.items():
-
-            if valeur > 0:
-                
-
-                print(cle)
-                vivant_ou_pas = DICO_VIVANT[cle]
-                print(vivant_ou_pas)
-                print("\n")
-
-                if vivant_ou_pas == 1:
-
-                   
-
-                    if DICO_E[cle] > 0:
-                        print("faut monter")
-                        monter = True
-                    else:
-                        baisser = True
-                        print("faut baisser")
-
-                    c = 0
-
-                    while valeur != 0:
-
-                        ajustage = valeur - c
-
-                        if ajustage == 0:
-                            print("ajustage de: ",c)
-                            break
-
-                        c+=1
-
-
-
-
-                    
-
-
-
-
-
-
-
-        
-                    print(liste[compteur])
-                                    
-
-
-
-
-
-
-
-
-
-
-
-
-   
-            compteur += 1
-
-            print("\n")            
 
 
 
@@ -310,13 +127,9 @@ if __name__ == "__main__":
 
     liste3 = []
     
- 
-    
     activation = activation()
     remplissage_dico_e(liste)
     remplissage_dico_e_abs(liste)
-    remplissage_dico_vivant(liste)
-
 
 
     for i in liste:
@@ -324,25 +137,15 @@ if __name__ == "__main__":
         liste1 = activation.recherche(i)
         liste2 = activation.traitement_liste(liste1)
         sortie = activation.calcul_poids(liste2)
-        activation.calcul_erreur(i, sortie, DICO_E, DICO_ABS)
-        conclusion = activation.conclusion(sortie, i)
-        
-        liste3.append(liste2)
-        
-    
-    regle = activation.matches(liste3, DICO_VIVANT)
-    
-    activation.modification_poids(liste3, regle, DICO_VIVANT, liste2)
+        activation.conclusion(sortie, i)
+
+
+#jvai y laisser mon ame sinon
+ 
+
+
 
     
-
-
-
-
-
-
-
-
 
 
 
