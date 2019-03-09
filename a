@@ -11,7 +11,11 @@ def mot(mot):
 
 def entree():
 
-    det1 = {"roue":1, "carburant":1, "vivant":1, "mammifère":1}
+    det1 = {"roue":1,
+            "carburant":1,
+            "vivant":1,
+            "mammifère":1
+            }
 
     return det1
 
@@ -26,7 +30,7 @@ def base_donnée():
             "camion":4,
             "voiture électrique":2,
             "fourmis":-2
-        }        
+            }        
 
     return data
 
@@ -48,6 +52,7 @@ DICO_ABS = {}
 def remplissage_dico_e_abs(liste):
     for i in liste:
         DICO_ABS[i] = 0
+
 
 class activation:
 
@@ -103,95 +108,13 @@ class activation:
 
         return sortie
 
-                
-    def calcul_erreur(self, mot, sortie, DICO_E, DICO_ABS):
 
-        donnée = base_donnée()
+    def conclusion(self, sortie, i):
         
-        #print(mot)
-        #print("en database:", donnée[mot])
-        #print("sortie :", sortie)
-        #print("\n")
-        e = sortie - donnée[mot]
-        #print("errueur:", e)
-
-        if e > 0 or e < 0:
-
-            DICO_E[mot] += e
-            e = abs(e)
-            DICO_ABS[mot] += e
-
-
-
-
-    def modification_poids(self, liste):
-        donnée = base_donnée()
-        poids = nos_poids()
-        #print(DICO_ABS)
-        #print(poids)
-        #print('\n')
-        #print(donnée)
-        #print('\n')
-        #print(DICO_E)
-        #faut que ca dise, a augmenter ou a descendu
-
-        
-        nouveau_poids = []
-
-
-        compteur = 0
-        for cle, valeur in DICO_ABS.items():
-            
-            if valeur > 0:
-                
-                print(liste[compteur])
-                print("\n")
-                print(poids)
-                print("\n")
-                print(cle)
-
-                
-                if DICO_E[cle] > 0:
-                    print("faut monter")
-                else:
-                    print("faut baisser")
-                
-                c = 0
-                
-                while valeur != 0:
-                    
-                    ajustage = valeur - c
-
-                    if ajustage == 0:
-                        print("ajustage de: ",c)
-                        break
-                    
-                    
-                    c+=1
-            compteur += 1
-            
-            print("\n")
-
-
-
-
-        
-        for i in range(1000):
-            pass
-
-
-
-
-
-
-
-
-    def conclusion(self):
-        pass
-        #if > 0 :
-        #    pass
-        #else:
-        #    pass
+        if sortie > 0 :
+            print(i + " nest pas vivant")
+        else:
+            print(i + " est vivant")
 
 
 
@@ -214,11 +137,12 @@ if __name__ == "__main__":
         liste1 = activation.recherche(i)
         liste2 = activation.traitement_liste(liste1)
         sortie = activation.calcul_poids(liste2)
-        activation.calcul_erreur(i, sortie, DICO_E, DICO_ABS)
+        activation.conclusion(sortie, i)
 
-        liste3.append(liste2)
 
-    activation.modification_poids(liste3)
+ 
+
+
 
     
 
