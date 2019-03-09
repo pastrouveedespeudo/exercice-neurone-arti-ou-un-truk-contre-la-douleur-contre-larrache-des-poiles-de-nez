@@ -134,57 +134,6 @@ class activation:
 
 
 
-    def modification_poids(self, liste):
-        donnée = base_donnée()
-        poids = nos_poids()
-        
-        print(DICO_ABS)
-        print("\n")
-        print(DICO_E)
-        print("\n")
-        print(poids)
-        print('\n')
-        print(donnée)
-        print('\n')
-        for i in liste:
-            print(i)
-
-        compteur = 0
-        for cle, valeur in DICO_ABS.items():
-
-            if valeur > 0:
-
-                print(liste[compteur])
-                print("\n")
-                print(poids)
-                print("\n")
-                print(cle)
-
-
-                if DICO_E[cle] > 0:
-                    print("faut monter")
-                else:
-                    print("faut baisser")
-
-                c = 0
-
-                while valeur != 0:
-
-                    ajustage = valeur - c
-
-                    if ajustage == 0:
-                        print("ajustage de: ",c)
-                        break
-
-
-                    c+=1
-            compteur += 1
-
-            print("\n")            
-
-
-
-
     def conclusion(self, sortie, i):
 
         if sortie < 0 :
@@ -200,12 +149,8 @@ class activation:
 
     def matches(self, liste, dico):
 
-        liste_viv = []
-        liste_1 = []
-        
-
-        dico_1 = {"vivant":0, "mammifère":0, "carburant":0,"roue":0}
-        dico_0 = {"vivant":0, "mammifère":0, "carburant":0,"roue":0}
+        vivant = {"vivant":0, "mammifère":0, "carburant":0,"roue":0}
+        non_vivant = {"vivant":0, "mammifère":0, "carburant":0,"roue":0}
 
         c1 = 0
         for cle, valeur in DICO_VIVANT.items():
@@ -214,16 +159,16 @@ class activation:
                 for cle, valeur in liste[c1].items():
             
                     if valeur == 1 and cle == "vivant":
-                        dico_1["vivant"] += 1
+                        vivant["vivant"] += 1
                         
                     elif valeur == 1 and cle == "mammifère":
-                        dico_1["mammifère"] += 1
+                        vivant["mammifère"] += 1
 
                     elif valeur == 1 and cle == "carburant":
-                        dico_1["carburant"] += 1
+                        vivant["carburant"] += 1
                     
                     elif valeur == 1 and cle == "roue":
-                        dico_1["roue"] += 1
+                        vivant["roue"] += 1
 
                         
             c1 += 1
@@ -235,27 +180,126 @@ class activation:
                 for cle, valeur in liste[c1].items():
             
                     if valeur == 1 and cle == "vivant":
-                        dico_0["vivant"] += 1
+                        non_vivant["vivant"] += 1
                         
                     elif valeur == 1 and cle == "mammifère":
-                        dico_0["mammifère"] += 1
+                        non_vivant["mammifère"] += 1
 
                     elif valeur == 1 and cle == "carburant":
-                        dico_0["carburant"] += 1
+                        non_vivant["carburant"] += 1
                     
                     elif valeur == 1 and cle == "roue":
-                        dico_0["roue"] += 1
-
+                        non_vivant["roue"] += 1
                         
             c1 += 1
 
 
+        return vivant, non_vivant
 
 
-        print(dico_1)
-        print(dico_0)
+
+    def modification_poids(self, liste, regle, viv, liste2):
+        donnée = base_donnée()
+        poids = nos_poids()
+
+        sortie = 0
+
+        net1 = []
+        cont1 = []
+        
+        net2 = []
+        cont2 = []
+
+        etre = regle[0]
+        machine = regle[1]
 
 
+        for cle, valeur in etre.items():
+            net1.append(valeur)
+        net1.sort()
+        net1 = net1[-2:]
+        
+        for i in net1:
+            cont1.append([c for c,v in etre.items() if v==i])
+
+
+
+        for cle, valeur in machine.items():
+            net2.append(valeur)    
+        net2.sort()
+        net2 = net2[-2:]
+        
+        for i in net2:
+            cont2.append([c for c,v in machine.items() if v==i])
+            
+
+        print(cont1)
+        print(cont2[0])
+
+        compteur = 0
+        for cle, valeur in DICO_ABS.items():
+
+            if valeur > 0:
+                
+
+                print(cle)
+                vivant_ou_pas = DICO_VIVANT[cle]
+                print(vivant_ou_pas)
+                print("\n")
+
+                if vivant_ou_pas == 1:
+
+                   
+
+                    if DICO_E[cle] > 0:
+                        print("faut monter")
+                        monter = True
+                    else:
+                        baisser = True
+                        print("faut baisser")
+
+                    c = 0
+
+                    while valeur != 0:
+
+                        ajustage = valeur - c
+
+                        if ajustage == 0:
+                            print("ajustage de: ",c)
+                            break
+
+                        c+=1
+
+
+
+
+                    
+
+
+
+
+
+
+
+        
+                    print(liste[compteur])
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+   
+            compteur += 1
+
+            print("\n")            
 
 
 
@@ -286,9 +330,9 @@ if __name__ == "__main__":
         liste3.append(liste2)
         
     
-    activation.matches(liste3, DICO_VIVANT)
+    regle = activation.matches(liste3, DICO_VIVANT)
     
-    #activation.modification_poids(liste3)
+    activation.modification_poids(liste3, regle, DICO_VIVANT, liste2)
 
     
 
