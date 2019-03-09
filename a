@@ -185,15 +185,6 @@ class activation:
 
 
 
-        #on abaisse tout
-            #on compare chaque resultat positif les machines
-            #on regarde tout les match ou y'a 1
-            #meme chose avec animal
-            #forcement ca va dire + pour 1 et 2 mais pas 3
-            #donc on enelve a 3 si jamais
-
-        
-
     def conclusion(self, sortie, i):
 
         if sortie < 0 :
@@ -209,10 +200,60 @@ class activation:
 
     def matches(self, liste, dico):
 
-        print(dico)
+        liste_viv = []
+        liste_1 = []
         
-        for i in liste:
-            print(i)
+
+        dico_1 = {"vivant":0, "mammifère":0, "carburant":0,"roue":0}
+        dico_0 = {"vivant":0, "mammifère":0, "carburant":0,"roue":0}
+
+        c1 = 0
+        for cle, valeur in DICO_VIVANT.items():
+            if valeur == 1:
+      
+                for cle, valeur in liste[c1].items():
+            
+                    if valeur == 1 and cle == "vivant":
+                        dico_1["vivant"] += 1
+                        
+                    elif valeur == 1 and cle == "mammifère":
+                        dico_1["mammifère"] += 1
+
+                    elif valeur == 1 and cle == "carburant":
+                        dico_1["carburant"] += 1
+                    
+                    elif valeur == 1 and cle == "roue":
+                        dico_1["roue"] += 1
+
+                        
+            c1 += 1
+
+        c1 = 0
+        for cle, valeur in DICO_VIVANT.items():
+            if valeur == 0:
+      
+                for cle, valeur in liste[c1].items():
+            
+                    if valeur == 1 and cle == "vivant":
+                        dico_0["vivant"] += 1
+                        
+                    elif valeur == 1 and cle == "mammifère":
+                        dico_0["mammifère"] += 1
+
+                    elif valeur == 1 and cle == "carburant":
+                        dico_0["carburant"] += 1
+                    
+                    elif valeur == 1 and cle == "roue":
+                        dico_0["roue"] += 1
+
+                        
+            c1 += 1
+
+
+
+
+        print(dico_1)
+        print(dico_0)
 
 
 
