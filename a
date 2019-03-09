@@ -18,13 +18,14 @@ def entree():
 def base_donnée():
 
     data = {"automobile":4,
-            "voiture":3,
-            "chat":-2,
-            "chien":0,
-            "train":5,
-            "machine a eau":1,
-            "raton":-2,
-            "camion":2,
+            "chat":-4,
+            "chien":-4,
+            "camionette":4,
+            "moto":4,
+            "raton":-4,
+            "camion":4,
+            "voiture électrique":2,
+            "fourmis":-2
         }        
 
     return data
@@ -43,7 +44,10 @@ def remplissage_dico_e(liste):
     for i in liste:
         DICO_E[i] = 0
 
-
+DICO_ABS = {}
+def remplissage_dico_e_abs(liste):
+    for i in liste:
+        DICO_ABS[i] = 0
 
 class activation:
 
@@ -72,11 +76,12 @@ class activation:
             dico_poids[i] = 0
         
         for i in dico.keys():
+        
             recherche = str(liste).find(str(i))
             if recherche >= 0:
                 dico_poids[i] += 1
            
-       
+        
         return dico_poids
 
 
@@ -90,6 +95,7 @@ class activation:
 
         c=0
         for i in dico_recherche.values():
+           
             poid = i * poids[c]
             sortie += poid
             
@@ -98,33 +104,73 @@ class activation:
         return sortie
 
                 
-    def calcul_erreur(self, mot, sortie, DICO_E):
+    def calcul_erreur(self, mot, sortie, DICO_E, DICO_ABS):
 
         donnée = base_donnée()
         
         #print(mot)
         #print("en database:", donnée[mot])
         #print("sortie :", sortie)
-
+        #print("\n")
         e = sortie - donnée[mot]
         #print("errueur:", e)
 
         if e > 0 or e < 0:
+
             DICO_E[mot] += e
+            e = abs(e)
+            DICO_ABS[mot] += e
 
 
 
 
-class etape_deux:
-
-    def modification_poids(self):
+    def modification_poids(self, liste):
         donnée = base_donnée()
         poids = nos_poids()
+        #print(DICO_ABS)
+        #print(poids)
+        #print('\n')
+        #print(donnée)
+        #print('\n')
+        #print(DICO_E)
+        #faut que ca dise, a augmenter ou a descendu
 
-        print(poids)
+        
+        nouveau_poids = []
 
-        print(donnée)
-        print(DICO_E)
+        for i in liste:
+            print(i)
+        print("\n")
+        
+        for cle, valeur in DICO_ABS.items():
+            
+            if valeur > 0:
+                
+                print(cle)
+                
+                if DICO_E[cle] > 0:
+                    print("faut monter")
+                else:
+                    print("faut baisser")
+                
+                c = 0
+                
+                while valeur != 0:
+                    
+                    ajustage = valeur - c
+
+                    if ajustage == 0:
+                        print("ajustage de: ",c)
+                        break
+                    
+                    
+                    c+=1
+       
+            
+            print("\n")
+
+
+
 
         
         for i in range(1000):
@@ -150,24 +196,26 @@ class etape_deux:
 
 if __name__ == "__main__":
 
-    liste = ["automobile","voiture","chat","chien",
-             "train","machine a eau", "raton","camion"]
+    liste = ["automobile","chat","chien","fourmis",
+             "camionette","moto", "raton","camion", "voiture électrique"]
 
+    liste3 = []
+    
     activation = activation()
     remplissage_dico_e(liste)
+    remplissage_dico_e_abs(liste)
 
-    etape_deux = etape_deux()    
 
     for i in liste:
         
-        liste = activation.recherche(i)
-        liste2 = activation.traitement_liste(liste)
+        liste1 = activation.recherche(i)
+        liste2 = activation.traitement_liste(liste1)
         sortie = activation.calcul_poids(liste2)
-        activation.calcul_erreur(i, sortie,DICO_E)
+        activation.calcul_erreur(i, sortie, DICO_E, DICO_ABS)
 
+        liste3.append(liste2)
 
-
-    etape_deux.modification_poids()
+    activation.modification_poids(liste3)
 
     
 
