@@ -3,6 +3,12 @@ import requests
 from bs4 import *
 
 
+
+
+def mot(mot):
+    return mot
+
+
 def entree():
 
     det1 = {"roue":1, "carburant":1, "vivant":1, "mammifère":1}
@@ -11,14 +17,18 @@ def entree():
 
 def base_donnée():
 
-    data = {"voiture":4,
-            "camion":4,
-            "chat":-4,
-            "chien":-4
+    data = {"automobile":4,
+            "voiture":3,
+            "chat":-2,
+            "chien":0,
+            "train":5,
+            "machine a eau":1,
+            "raton":-2,
+            "camion":2,
         }        
 
-
     return data
+
 
 def nos_poids():
     un = 2
@@ -27,6 +37,7 @@ def nos_poids():
     quattre = -2
 
     return un, deux, trois, quattre
+
 
 
 class activation:
@@ -67,7 +78,6 @@ class activation:
 
 
     def calcul_poids(self, dico_recherche):
-        #x1*w1 + x2*w2...
 
         sortie = 0
 
@@ -84,23 +94,32 @@ class activation:
         return sortie
 
                 
-    def calcul_erreur(self, sortie):
+    def calcul_erreur(self, mot, sortie):
         #e = sortie - notre score ex voiture = 4
         #pour voiture et vivant
+        
+        donnée = base_donnée()
+        print(mot)
+        print("en database:", donnée[mot])
+        print("sortie :", sortie)
+
+        e = sortie - donnée[mot]
+        print("errueur:", e)
+        print("\n")
+
+
+
+    def conclusion(self):
         pass
-
-    
-
-
-
-
+        #if > 0 :
+        #    pass
+        #else:
+        #    pass
 
 
-
-
-
-      
-
+    def modification_poids(self):
+        for i in range(1000):
+            pass
 
 
 if __name__ == "__main__":
@@ -109,14 +128,18 @@ if __name__ == "__main__":
              "train","machine a eau", "raton","camion"]
 
     activation = activation()
-    liste = activation.recherche("automobile")
-    liste2 = activation.traitement_liste(liste)
-    sortie = activation.calcul_poids(liste2)
-    activation.calcul_erreur(sortie)
+    
+    for i in liste:
+        
+        liste = activation.recherche(i)
+        liste2 = activation.traitement_liste(liste)
+        sortie = activation.calcul_poids(liste2)
+        activation.calcul_erreur(i, sortie)
 
-#on cherche machine
-#mouais chai pas bon go retourner theorie fais lerreur et fias toute la liste 
 
+#met une valeur a voiture ex 2.5, et tu met les poids en random sur 100
+#et tu prend toutes les combi = a 2.5
+#faire dautre recherche sur wiki et autre
 
 
 
