@@ -138,15 +138,18 @@ class activation:
         
         nouveau_poids = []
 
-        for i in liste:
-            print(i)
-        print("\n")
-        
+
+        compteur = 0
         for cle, valeur in DICO_ABS.items():
             
             if valeur > 0:
                 
+                print(liste[compteur])
+                print("\n")
+                print(poids)
+                print("\n")
                 print(cle)
+
                 
                 if DICO_E[cle] > 0:
                     print("faut monter")
@@ -165,7 +168,7 @@ class activation:
                     
                     
                     c+=1
-       
+            compteur += 1
             
             print("\n")
 
