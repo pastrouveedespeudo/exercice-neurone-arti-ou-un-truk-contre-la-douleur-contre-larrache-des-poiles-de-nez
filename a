@@ -53,6 +53,11 @@ def remplissage_dico_e_abs(liste):
     for i in liste:
         DICO_ABS[i] = 0
 
+DICO_VIVANT = {}
+def remplissage_dico_vivant(liste):
+    for i in liste:
+        DICO_VIVANT[i] = 0
+
 
 class activation:
 
@@ -109,12 +114,105 @@ class activation:
         return sortie
 
 
-    def conclusion(self, sortie, i):
+                
+    def calcul_erreur(self, mot, sortie, DICO_E, DICO_ABS):
+
+        donnée = base_donnée()
         
-        if sortie > 0 :
-            print(i + " nest pas vivant")
+        #print(mot)
+        #print("en database:", donnée[mot])
+        #print("sortie :", sortie)
+        #print("\n")
+        e = sortie - donnée[mot]
+        #print("errueur:", e)
+
+        if e > 0 or e < 0:
+
+            DICO_E[mot] += e
+            e = abs(e)
+            DICO_ABS[mot] += e
+
+
+
+    def modification_poids(self, liste):
+        donnée = base_donnée()
+        poids = nos_poids()
+        
+        print(DICO_ABS)
+        print("\n")
+        print(DICO_E)
+        print("\n")
+        print(poids)
+        print('\n')
+        print(donnée)
+        print('\n')
+        for i in liste:
+            print(i)
+
+        compteur = 0
+        for cle, valeur in DICO_ABS.items():
+
+            if valeur > 0:
+
+                print(liste[compteur])
+                print("\n")
+                print(poids)
+                print("\n")
+                print(cle)
+
+
+                if DICO_E[cle] > 0:
+                    print("faut monter")
+                else:
+                    print("faut baisser")
+
+                c = 0
+
+                while valeur != 0:
+
+                    ajustage = valeur - c
+
+                    if ajustage == 0:
+                        print("ajustage de: ",c)
+                        break
+
+
+                    c+=1
+            compteur += 1
+
+            print("\n")            
+
+
+
+
+        #on abaisse tout
+            #on compare chaque resultat positif les machines
+            #on regarde tout les match ou y'a 1
+            #meme chose avec animal
+            #forcement ca va dire + pour 1 et 2 mais pas 3
+            #donc on enelve a 3 si jamais
+
+        
+
+    def conclusion(self, sortie, i):
+
+        if sortie < 0 :
+            #print(i + " nest pas vivant")
+            DICO_VIVANT[i] += 1
+            
         else:
-            print(i + " est vivant")
+            #print(i + " est vivant")
+            pass
+
+            
+
+
+    def matches(self, liste, dico):
+
+        print(dico)
+        
+        for i in liste:
+            print(i)
 
 
 
@@ -127,9 +225,13 @@ if __name__ == "__main__":
 
     liste3 = []
     
+ 
+    
     activation = activation()
     remplissage_dico_e(liste)
     remplissage_dico_e_abs(liste)
+    remplissage_dico_vivant(liste)
+
 
 
     for i in liste:
@@ -137,12 +239,15 @@ if __name__ == "__main__":
         liste1 = activation.recherche(i)
         liste2 = activation.traitement_liste(liste1)
         sortie = activation.calcul_poids(liste2)
-        activation.conclusion(sortie, i)
-
-
- 
-
-
+        activation.calcul_erreur(i, sortie, DICO_E, DICO_ABS)
+        conclusion = activation.conclusion(sortie, i)
+        
+        liste3.append(liste2)
+        
+    
+    activation.matches(liste3, DICO_VIVANT)
+    
+    #activation.modification_poids(liste3)
 
     
 
