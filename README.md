@@ -1,2 +1,2 @@
 
-#ah mais okkk enfete l'ia c comme opencv javais rien capté
+#efface la derniere partie c pas ca et jy comprend rien une fois fait mais ca donne la hauteur du rectangle jvoulais un trait...
