@@ -1,5 +1,5 @@
+from PIL import Image, ImageDraw, ImageChops
 import numpy as np
-from PIL import Image
 import cv2
 import os
 
@@ -76,7 +76,9 @@ class image_un:
             #self.image[7:117, 40:55] = 0,255,0
             retangle1 = True
 
-        rectangle_petit_bout = []
+
+
+
 
         cherche_diagonale = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
 
@@ -94,9 +96,6 @@ class image_un:
                     c+=1
 
 
-    
-
-        
         for i in range(int(round(self.image.shape[1] / 100*50))):
             self.image[cherche_diagonale[-1][0][0]-i, cherche_diagonale[-1][0][1]+i] = 0,255,0
      
@@ -109,9 +108,92 @@ class image_un:
             print("oui")
         self.image[x:to_pts,y] = 0,255,255
 
-    def barre_du_bas_un(self):
-        pass
+
+
+    def barre_du_bas_un(self, image):
+        self.image = image
+
+
+        bas_image = Image.open("2.jpg")
+
+        masque = Image.new('RGB', bas_image.size, color=(255,255,255))
+
+        a = bas_image.size[0]
+        b = bas_image.size[1] / 100* 80
+        c = 0
+        d = bas_image.size[1]
+
+        coords = (a,b, c,d)
+   
+        masque_draw = ImageDraw.Draw(masque)
+        masque_draw.rectangle(coords, fill=(0,0,0))
+        diff = ImageChops.lighter(bas_image, masque)
+
+        diff.save("traitement.jpg")
+
+
+        liste_x_pareil = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
+
+        img = cv2.imread("traitement.jpg")
+        liste_y = []
+
+        c = 0
+        for x in range(img.shape[0]):
+            for y in range(img.shape[1]):
+                
+                if img[x,y].all() == np.array([0,0,0]).all():
+                    
+                    liste_x_pareil.append(x)
+                    liste_y.append(y)
+                    img[x:,y]
+                    if x == x + 1:
+                        c+=1
+
         
+
+        liste_longueur_20_y = []
+        liste_longueur_20_y_sur = []
+        nos_x = []
+        
+        c = 0
+        for i in liste_y:
+            try:
+                if liste_y[c+20] - liste_y[c] == 20:
+                    liste_longueur_20_y.append((liste_y[c],liste_y[c+20]))
+                c+=1
+            except:
+                pass
+
+        c1 = 0
+        try:
+            for i in liste_longueur_20_y:
+                if img[c1, i[0]:i[1]].all() == np.array([0,0,0]).all():
+                    liste_longueur_20_y_sur.append((x,y))
+                    nos_x.append(c1)
+
+                else:
+                    pass
+                c1 += 1
+        except:
+            pass
+        print(nos_x)
+        print(liste_longueur_20_y_sur)
+        
+        img[95:114, 92:110] = 0,0,255
+                    
+
+
+        
+        nettoyage_liste = []
+        for i in liste_x_pareil:
+            if i == []:
+                pass
+            else:
+                nettoyage_liste.append(i)
+
+        print(set(nettoyage_liste))
+        img[95]
+        cv2.imshow("yo1.jpg", img)
         
     def cherche_droite_un_mal_dessiner(self,image):
         pass
@@ -139,6 +221,7 @@ if __name__ == "__main__":
     img.cherche_droite_verticale(image1)
     img.cherche_les_rectangle_du_un(image1)
     img.cherche_droite_en_diagonale(image1)
+    img.barre_du_bas_un(l_image)
     
     img.montre(image1)
 
