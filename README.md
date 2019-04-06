@@ -2,4 +2,4 @@ oublie surtout pas ! le truk doit juste dire rentre moi des phrases
 
 dapres le genre, je vois que : 5phrases la meme chose ? ok je l'apprend et ca va etre faux les mecs utilises pas que des phrases sujet nom adjectif heuresement donc si au bout de 5 autres phrases y'a pas se truk je l'enleve
 
-ensuite on pourra faire ca  avec les personnalités comme nous les papilles evoluent comme nos idées sur les personaltiés ouais fin truk autisme voiture analuse spectral animaux, carre, sourrire dicodico jme disais la meme chose ^^ jai envie mais jai aussi loupé pleins de resident evil spour ca jcomprenais pas pk le mec a lunette avait des tentacules...
+merde mais jtai trop nul jaurai pu avoir des bonnes notes enfete fallait dire par exemmple on peut voir que zazi exprime son avis car le verbe transitif une connerie du genre ouaaaaa au moins mtn je sais c quoi un verbe transitif
