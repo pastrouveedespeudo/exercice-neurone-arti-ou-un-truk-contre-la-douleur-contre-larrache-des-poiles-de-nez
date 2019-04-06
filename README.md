@@ -1,9 +1,5 @@
-mais ca doti apprend tout seule
+oublie surtout pas ! le truk doit juste dire rentre moi des phrases
 
-la machine fait elle meme genre une page blanche elle remplis elle meme les ligne ? ou faut ecrire du code tu peux sauter courir
+dapres le genre, je vois que : 5phrases la meme chose ? ok je l'apprend et ca va etre faux les mecs utilises pas que des phrases sujet nom adjectif heuresement donc si au bout de 5 autres phrases y'a pas se truk je l'enleve
 
-et le truk apprend lui meme a sauter par genetique chai pas quoi ?
-
-du coup la on a juste a faire la meme et par répetition si y'a plus de 5 fois alors on enregistre mais si elle fin le truk apprend le truk mais que c faux ca devient une theorie naive
-
-pcque sinon faut lui apprendre a coder et on fait la technique de lecriture du fichier avec une classe par contre on peut pas faire f5 sans appuyer dessus
+ensuite on pourra faire ca  avec les personnalités comme nous les papilles evoluent comme nos idées sur les personaltiés ouais fin truk autisme voiture analuse spectral animaux, carre, sourrire dicodico jme disais la meme chose ^^
