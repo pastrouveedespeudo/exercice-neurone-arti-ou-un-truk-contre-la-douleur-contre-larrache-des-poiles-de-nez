@@ -42,7 +42,7 @@ class premiere_opération:
         c = 0
         for i in texte:
          
-            if i == ".":
+            if i == "." or i == "!" or i == "?":
                 liste[c].append(i)
                 c+=1
             liste[c].append(i)
@@ -64,11 +64,11 @@ class poidsPonctuation:
                        or j == ";"]
         
         return ponctuation
-        
- 
+
+
 
 class poidsTexte:
-    
+
     def longueurTexte(self, texte):
         self.texte = texte
         longueur = len(self.texte)
@@ -86,12 +86,15 @@ class poidsTexte:
 
         imperatif = ""
         imperatif1 = ""
+        liste_imperatif = []
+        
         liste = [[],[],[],[],[],[],[],[],[],[],[],[],
                  [],[],[],[],[],[],[],[],[],[],[],[],
                  [],[],[],[],[],[],[],[],[],[],[],[],
                  [],[],[],[],[],[],[],[],[],[],[],[]]
         c = 0
-        for i in self.texte:
+        for i in texte:
+            #on cherche ! a la fin
             if i[-1] == "!":
                 liste[c].append(i)
                 c+=1
@@ -103,11 +106,13 @@ class poidsTexte:
      
                 for pronom in PRONOMS:
                     if j == pronom:
+                        #si y'a pronom alors false
                         imperatif = False
                         
                 if imperatif == False:
                     pass
                 else:
+                    #si y'a pas pronom cherche
                     path = "http://www.les-verbes.com/conjuguer.php?verbe={}"
                     path = path.format(j)
                     requete = requests.get(path)
@@ -116,12 +121,16 @@ class poidsTexte:
                     soup = BeautifulSoup(page, "html.parser")      
                     propriete = soup.find_all("span", {"class":"arial-12-gris"})
                     verbe = str(propriete).find("VERBE")
+                    #si on trouve verbe fais
                     if verbe >= 0:
                         for conjugai_a_imperatif in IMPERATIF:
                             nb = len(conjugai_a_imperatif)
                             if j[-nb:] == conjugai_a_imperatif:
-                                imperatif1 = True
-        return imperatif1
+                                #si conjugai 2,4,5 personne alors true
+                                liste_imperatif.append((i, True))
+
+        print(liste_imperatif)                         
+        return liste_imperatif
 
 class poidsMots:
     
@@ -134,12 +143,24 @@ class poidsMots:
         nbTu = len(tu)
         
         return nbJe, nbTu
-
+    #il semnle que pour les fille y'a plus de tu
+    #pour les mec plus de je par exemple
+    
     def faute(self, texte):
         self.texte = texte
 
     def adjectif(self, texte):
         self.texte = texte
+    #fille jolie
+    #fille plus d'adj par ex
+
+
+    def presence_nom_commun(self, texte):
+        pass
+    #fille danse
+    #mec voiture
+
+   
 
 
     
@@ -156,8 +177,9 @@ class poidsMots:
 if __name__ == "__main__":
 
     #on split le texte ect
+    a =  "donne moi ca ! je donne moi ca !"
     premiere_opération = premiere_opération()
-    txt = premiere_opération.trait_texte("donne moi ca !")
+    txt = premiere_opération.trait_texte(TEXT)
     text1 = premiere_opération.traitement_phrase(txt)
 
     poidsTexte = poidsTexte()
