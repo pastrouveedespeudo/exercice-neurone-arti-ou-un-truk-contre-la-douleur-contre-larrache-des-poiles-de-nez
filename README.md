@@ -1,6 +1,7 @@
+mais ca doti apprend tout seule
 
-#efface la derniere partie c pas ca et jy comprend rien une fois fait mais ca donne la hauteur du rectangle jvoulais un trait...
+la machine fait elle meme genre une page blanche elle remplis elle meme les ligne ? ou faut ecrire du code tu peux sauter courir
 
-#ca m'a saoulé je recommencerai avec plus de temps de toute facon jdevrai faire ca pour la gueule des mecs et synergo 
+et le truk apprend lui meme a sauter par genetique chai pas quoi ?
 
-#moi jvoulais mamauser alors nik
+du coup la on a juste a faire la meme et par répetition si y'a plus de 5 fois alors on enregistre mais si elle fin le truk apprend le truk mais que c faux ca devient une theorie naive
