@@ -8,28 +8,51 @@ from perso import *
 
 
 class premiere_opération:
+    
     def trait_texte(self, texte):
+        
         self.texte = texte
         texte = texte.split()
-        print(texte)
-        return texte
-
-
-    def remplissage_perso(self, perso):
-        self.perso = perso
         
-        self.dico = {}
+        c=0
+        texte1 = []
+    
+        for i in texte:
 
-        for cle in self.perso:
-            self.dico[cle] = 0
-            
-        print(self.dico)
-        return self.dico
+            if i[-1] == "," or i[-1] == ".":
+                j = i[-1]
+                i = i[:-1]
+                texte1.append(str(i))
+                texte1.append(j)
+                c+=1
+            else:
+                texte1.append(str(i))    
 
+        return texte1
 
+    def traitement_phrase(self, texte):
+        """ici on a les phrases segmentées par des points"""
+        
+        self.texte = texte
 
+        liste = [[],[],[],[],[],[],[],[],[],[],[],[],
+                 [],[],[],[],[],[],[],[],[],[],[],[],
+                 [],[],[],[],[],[],[],[],[],[],[],[],
+                 [],[],[],[],[],[],[],[],[],[],[],[]]
 
+        c = 0
+        for i in self.texte:
+            if i == ".":
+                c+=1
+            liste[c].append(i)
+
+        liste2 = [i for i in liste if i != []]
+
+        return liste2
+
+    
 class poidsPonctuation:
+    
     def Ponctuation(self, texte):
         ponctuation = [j for i in texte for j in i
                        if j == "?"
@@ -37,32 +60,31 @@ class poidsPonctuation:
                        or j == "."
                        or j == ","
                        or j == ";"]
+
         
-        print(ponctuation)
+ 
 
-
-    #def ? ! , <- exité integoré ect
-
-
-
-
-
-    
 class poidsTexte:
+    
     def longueurTexte(self, texte):
         self.texte = texte
         longueur = len(texte)
 
-        print(longueur)
         return longueur
 
+    def type_de_texte(self, texte):
+        pass
 
+    def structure_phrase(self, texte):
+        pass
 
-
+    def impératif(self, texte):
+        pass
 
 
 
 class poidsMots:
+    
     def Pronom(self, texte):
         self.texte = texte
         
@@ -73,44 +95,14 @@ class poidsMots:
         
         return nbJe, nbTu
 
+    def faute(self, texte):
+        pass
+
+    def adjectif(self, texte):
+        pass
 
 
-    def ordre(self, texte):
-        self.texte = texte
-
-        b = ["il faut que","tu dois","vous devez",
-             "","","",
-             "","","",
-             "","",""]
-        liste = [j for i in self.texte for j in mot if i == j]
-        print(liste)
-        
-    #impératif ou il faut que tu, tu dois
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 
@@ -126,7 +118,7 @@ if __name__ == "__main__":
     #on split le texte ect
     opé = premiere_opération()
     text = opé.trait_texte(TEXT)
-    opé.remplissage_perso(PERSO)
+
 
 
     #la longueur du text
@@ -141,7 +133,9 @@ if __name__ == "__main__":
     #les mots
     trait_poids2 = poidsMots()
     trait_poids2.Pronom(text)
-    trait_poids2.ordre(text)
+    trait_poids2.faute(text)
+    trait_poids2.adjectif(text)
+
 
 
 
