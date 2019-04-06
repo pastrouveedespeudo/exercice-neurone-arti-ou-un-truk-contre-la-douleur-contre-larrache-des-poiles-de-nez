@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 from texte import *
 from perso import *
 
+
+
 class premiere_opération:
     def trait_texte(self, texte):
         self.texte = texte
@@ -26,15 +28,8 @@ class premiere_opération:
 
 
 
-class poids:
-    
-    def longueurTexte(self, texte):
-        self.texte = texte
-        longueur = len(texte)
 
-        print(longueur)
-        return longueur
-
+class poidsPonctuation:
     def Ponctuation(self, texte):
         ponctuation = [j for i in texte for j in i
                        if j == "?"
@@ -45,6 +40,29 @@ class poids:
         
         print(ponctuation)
 
+
+    #def ? ! , <- exité integoré ect
+
+
+
+
+
+    
+class poidsTexte:
+    def longueurTexte(self, texte):
+        self.texte = texte
+        longueur = len(texte)
+
+        print(longueur)
+        return longueur
+
+
+
+
+
+
+
+class poidsMots:
     def Pronom(self, texte):
         self.texte = texte
         
@@ -54,9 +72,19 @@ class poids:
         nbTu = len(tu)
         
         return nbJe, nbTu
-    
-    def poids4(self, texte):
+
+
+
+    def ordre(self, texte):
         self.texte = texte
+
+        b = ["il faut que","tu dois","vous devez",
+             "","","",
+             "","","",
+             "","",""]
+        liste = [j for i in self.texte for j in mot if i == j]
+        print(liste)
+        
     #impératif ou il faut que tu, tu dois
 
 
@@ -95,20 +123,25 @@ class poids:
 
 if __name__ == "__main__":
 
+    #on split le texte ect
     opé = premiere_opération()
     text = opé.trait_texte(TEXT)
     opé.remplissage_perso(PERSO)
 
 
-    trait_poids = poids()
+    #la longueur du text
+    trait_poids = poidsTexte()
     trait_poids.longueurTexte(text)
-    trait_poids.Ponctuation(text)
-    trait_poids.Pronom(text)
 
 
+    #la ponctuation
+    trait_poids1 = poidsPonctuation()
+    trait_poids1.Ponctuation(text)
 
-
-
+    #les mots
+    trait_poids2 = poidsMots()
+    trait_poids2.Pronom(text)
+    trait_poids2.ordre(text)
 
 
 
