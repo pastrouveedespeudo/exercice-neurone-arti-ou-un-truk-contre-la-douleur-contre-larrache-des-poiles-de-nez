@@ -1,17 +1,59 @@
 import os
 
+
+A_f = []
+
+A_m = []
+
 class analyse:
-    def analyse:
+    def analyse(self):
+
         traitement = os.listdir()
 
+        liste = []
+
+        liste2 = [[],[],[],[],[],[],[],[],[],[],[],[],
+                 [],[],[],[],[],[],[],[],[],[],[],[],
+                 [],[],[],[],[],[],[],[],[],[],[],[],
+                 [],[],[],[],[],[],[],[],[],[],[],[]]
+        liste3 = []
+        
         for i in traitement:
             if i == "conteneur.py" or i == "input.py"\
                or i == "ligne de route.py" or i == "methode.py"\
                or i == "perso.py" or i == "phrases.py"\
                or i == "texte.py" or i == "traitement.py"\
-               or i == "analyse.py":
+               or i == "analyse.py" or i == "__pycache__":
                 pass
             else:
-                print("euh euh je suis vivante ! c'est toi sur la photo de github ?\
-                     tu ressembles a E.T gros... voila déso bonne soirée la biz")
-                #with open
+                print(i)
+                with open(i,"r") as file:
+                    liste.append(file.read())
+
+                c = 0
+                for i in liste[0]:
+                    if i == '\n':
+                        c+=1
+                    else:
+                        liste2[c].append(i)
+                
+
+                for i in liste2:
+                    if i == []:
+                        pass
+                    else:
+                        liste3.append("".join(i))
+
+                print(liste3[1][16])
+                if liste3[1][16] == "1":
+                    
+                break
+
+    def fonction_a(self):
+        pass
+
+
+
+if __name__ == "__main__":
+    analyse = analyse()
+    analyse.analyse()
