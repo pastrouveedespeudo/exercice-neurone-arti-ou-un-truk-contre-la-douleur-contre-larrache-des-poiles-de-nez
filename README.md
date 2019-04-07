@@ -4,8 +4,4 @@ dapres le genre, je vois que : 5phrases la meme chose ? ok je l'apprend et ca va
 
 rajouter pleins de phrase, ca va prendre 1h a le faire MAIS
 
-c faux mais y'a du fem et du masc donc ca va ok souviens toi le but c de dire fem = ca
-masc = ca
-donc les fem utilises plus ca et masc ca mais je lapprend tout seul et je desaprend jamais je lui ai mis les fem utilise plus ca que ca
-
-ca ressemble a ce quils disent dans les video loin de tres loin mais ca ressemble
+jaurai du matter la fin du film pendant le chargement... OU ca donne une escuse pour voir le dernier ^^ ca me degoute les 4 truk qui leur sortent de la gueule beurk
