@@ -56,14 +56,24 @@ class poidsPonctuation:
     
     def Ponctuation(self, texte):
         self.texte = texte
-        ponctuation = [j for i in self.texte for j in i
-                       if j == "?"
-                       or j == "!"
-                       or j == "."
-                       or j == ","
-                       or j == ";"]
+
+        dico = {}
+        for i in PONCTUATION:
+            dico[i] = 0
+    
+        liste = []
+
         
-        return ponctuation
+        for i in self.texte:
+            for j in i:
+                for ponct in PONCTUATION:
+                    if j == ponct:
+                        dico[j] += 1
+
+        return dico
+
+            
+        #return ponctuation
 
 
 
@@ -75,9 +85,31 @@ class poidsTexte:
 
     def longueurTexte(self, texte):
         self.texte = texte
-        longueur = len(self.texte)
 
-        return longueur
+        dico = {"nb_phrase":0, "mot_phrase_max":0}
+
+        liste = [[],[],[],[],[],[],[],[],[],[],[],[],
+                 [],[],[],[],[],[],[],[],[],[],[],[],
+                 [],[],[],[],[],[],[],[],[],[],[],[],
+                 [],[],[],[],[],[],[],[],[],[],[],[]]
+
+        c = 0
+        for i in self.texte:
+            compteur = 0
+            for j in i:
+                compteur += 1
+                if j == ".":
+                    liste[c].append(compteur)
+                    c+=1
+            
+            
+            
+        longueur = len(self.texte)
+        dico["nb_phrase"] += longueur
+        a = max(liste)
+        dico["mot_phrase_max"] += a[0]
+
+        return dico
 
 
     def structure_phrase(self, texte):
@@ -239,7 +271,7 @@ class poidsTexte:
                                 #si conjugai 2,4,5 personne alors true
                                 liste_imperatif.append((i, True))
 
-        print(liste_imperatif)                         
+                           
         return liste_imperatif
 
 class poidsMots:
@@ -247,25 +279,26 @@ class poidsMots:
     def Pronom(self, texte):
         self.texte = texte
         
-        je = [i for i in self.texte if i == "je" or i == "Je"]
-        tu = [i for i in self.texte if i == "tu" or i == "Tu"]
-        il = [i for i in self.texte if i == "il" or i == "Il"]
-        elle = [i for i in self.texte if i == "elle" or i == "Elle"]
-        nous = [i for i in self.texte if i == "nous" or i == "Nous"]
-        vous = [i for i in self.texte if i == "vous" or i == "Vous"]
-        ils = [i for i in self.texte if i == "Ils" or i == "ils"]
-        elles = [i for i in self.texte if i == "Elles" or i == "elles"]
+        je = [j for i in self.texte for j in i if j == "je" or j == "Je"]
+        tu = [j for i in self.texte for j in i if j == "tu" or j == "Tu"]
+        il = [j for i in self.texte for j in i if j == "il" or j == "Il"]
+        elle = [j for i in self.texte for j in i if j == "elle" or j == "Elle"]
+        nous = [j for i in self.texte for j in i if j == "nous" or j == "Nous"]
+        vous = [j for i in self.texte for j in i if j == "vous" or j == "Vous"]
+        ils = [j for i in self.texte for j in i if j == "Ils" or j == "ils"]
+        elles = [j for i in self.texte for j in i if j == "Elles" or j == "elles"]
         
         nbJe = len(je)
         nbTu = len(tu)
-        nbil = len(il)
-        nbelle = len(elle)
-        nbnous = len(nous)
-        nbvous = len(vous)
-        nbils = len(ils)
-        nbelles = len(elles)
+        nbIl = len(il)
+        nbElle = len(elle)
+        nbNous = len(nous)
+        nbVous = len(vous)
+        nbIls = len(ils)
+        nbElles = len(elles)
         
-        return nbJe, nbTu, nbIl,nb,Elle, nbElle, nbNous, nbVous, nbIls, nbElles
+        print(nbJe, nbTu, nbIl,nbElle, nbNous, nbVous, nbIls, nbElles)
+        return nbJe, nbTu, nbIl,nbElle, nbNous, nbVous, nbIls, nbElles
 
     
     def faute(self, texte):
@@ -289,7 +322,7 @@ class poidsMots:
                 if adjectif >= 0:
                     liste.append(j)
 
-        print(liste)
+   
         return liste
 
     def presence_nom_commun(self, texte):
@@ -331,46 +364,4 @@ class poidsMots:
                 
  
         return liste
-
-   
-
-
-    
-
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
-
-    #on split le texte ect
-    a =  "donne moi ca ! je donne moi ca !"
-    premiere_opération = premiere_opération()
-    txt = premiere_opération.trait_texte(TEXT)
-    text1 = premiere_opération.traitement_phrase(txt)
-    poidsMots = poidsMots()
-
-    
-    poidsTexte = poidsTexte()
-
-    poidsMots.adjectif(text1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
