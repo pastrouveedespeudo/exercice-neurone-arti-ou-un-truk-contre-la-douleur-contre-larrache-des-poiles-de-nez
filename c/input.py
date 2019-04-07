@@ -1,5 +1,6 @@
 from traitement import *
 from conteneur import *
+from methode import *
 
 genre = {"masculin":0, "feminin":0}
 
@@ -56,8 +57,6 @@ class apprentissage1:
         fem = False
         genre = {"feminin":0, "masculin":0}
 
-
-        
         for i in self.texte:
             for j in i[0]:
                 path = "https://www.le-dictionnaire.com/definition/{}"
@@ -93,9 +92,9 @@ class apprentissage1:
             genre["masculin"] += 1
                         
                     
-        print(genre)
+     
 
-
+        return genre
         
 
 
@@ -103,13 +102,22 @@ if __name__ == "__main__":
 
 
     #entrée = input("texte ?")
-    liste = [TEXT10, TEXT, TEXT1, TEXT2, TEXT3, TEXT4, TEXT5,TEXT6,
+    listeTEXT = [TEXT10, TEXT, TEXT1, TEXT2, TEXT3, TEXT4, TEXT5,TEXT6,
              TEXT7,TEXT8, TEXT9, TEXT11,TEXT12,TEXT13,TEXT14,TEXT16]
     
     apprentissage1 = apprentissage1()
+    poidsPonctuation = poidsPonctuation()
+    ecriture = ecriture()
+    poidsTexte = poidsTexte()
+    poidsMots = poidsMots()
     
-    for i in liste:
-    
+    c = 0
+    for i in listeTEXT:
+        name = "requete{}.py".format(c)
+
+        ecriture.ecriture0("#", name)
+        ecriture.ecriture0(("liste numero : {}".format(str(c))), name)
+        
         entrée = i
         entrée1 = "je suis très heureuse"
 
@@ -122,29 +130,73 @@ if __name__ == "__main__":
         text = opé.trait_texte(entrée)
         phrases = opé.traitement_phrase(text)
 
+
+
         #methode genre
         genre = apprentissage1.opération_pour_genre(phrases)
         genre2 = apprentissage1.opération_pour_le_genre2(genre)
-        apprentissage1.le_genre(genre2)
-
-        #ponctuation
-
-
-        #longueur_texte
-
-        #structure de phrase
+        a = apprentissage1.le_genre(genre2)
+        
+        ecriture.ecriture0("\n", name)
+        ecriture.ecriture0("a = ", name)
+        ecriture.ecriture0(a, name)
+        
 
         
+       #ponctuation
+        ponctua = poidsPonctuation.Ponctuation(phrases)
+        ecriture.ecriture0("\n", name)
+        ecriture.ecriture0('b = ', name)
+        ecriture.ecriture0(str(ponctua), name)
+        
+        #longueur_texte
+        ecriture.ecriture0("\n", name)
+        long = poidsTexte.longueurTexte(phrases)
+        ecriture.ecriture0("c = ", name)
+        ecriture.ecriture0(long, name)
+
+
+        
+        #structure de phrase
+        type_phrase = poidsTexte.structure_phrase(phrases)
+        ecriture.ecriture0("\n", name)
+        ecriture.ecriture0("d = ", name)
+        ecriture.ecriture0(type_phrase, name)
+        
+        
         #impératif
+        imperatif = poidsTexte.impératif(phrases)
+        ecriture.ecriture0("\n", name)
+        ecriture.ecriture0("e = ", name)
+        ecriture.ecriture0(imperatif, name)
+
 
         #pronom
+        pronom = poidsMots.Pronom(phrases)
+        ecriture.ecriture0("\n", name)
+        ecriture.ecriture0("f = ", name)
+        ecriture.ecriture0(pronom, name)
 
+        
         #adjectif
-
+        adj = poidsMots.adjectif(phrases)
+        ecriture.ecriture0("\n", name)
+        ecriture.ecriture0("g = ", name)
+        ecriture.ecriture0(adj, name)
+        
         #nm_comun
-
+        nm = poidsMots.presence_nom_commun(phrases)
+        ecriture.ecriture0("\n", name)
+        ecriture.ecriture0("h = ", name)
+        ecriture.ecriture0(nm, name)
+        
         #verbe
-
+        verbe = poidsMots.presence_verbe(phrases)
+        ecriture.ecriture0("\n", name)
+        ecriture.ecriture0("i = ", name)
+        ecriture.ecriture0(verbe, name)
+        break
+        c+=1
 
 
 
