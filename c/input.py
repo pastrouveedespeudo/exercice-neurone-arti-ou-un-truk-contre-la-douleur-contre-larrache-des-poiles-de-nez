@@ -202,18 +202,7 @@ if __name__ == "__main__":
         c+=1
 
 
-    traitement = os.listdir()
-
-    for i in traitement:
-        if i == "conteneur.py" or i == "input.py"\
-           or i == "ligne de route.py" or i == "methode.py"\
-           or i == "perso.py" or i == "phrases.py"\
-           or i == "texte.py" or i == "traitement.py":
-            pass
-        else:
-            pass
-            #with open
-
+ 
 
 
 
