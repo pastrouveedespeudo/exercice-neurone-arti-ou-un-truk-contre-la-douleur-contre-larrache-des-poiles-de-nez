@@ -113,6 +113,7 @@ if __name__ == "__main__":
     
     c = 0
     for i in listeTEXT:
+        
         name = "requete{}.py".format(c)
 
         ecriture.ecriture0("#", name)
@@ -148,7 +149,8 @@ if __name__ == "__main__":
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0('b = ', name)
         ecriture.ecriture0(str(ponctua), name)
-        
+
+
         #longueur_texte
         ecriture.ecriture0("\n", name)
         long = poidsTexte.longueurTexte(phrases)
@@ -156,7 +158,6 @@ if __name__ == "__main__":
         ecriture.ecriture0(long, name)
 
 
-        
         #structure de phrase
         type_phrase = poidsTexte.structure_phrase(phrases)
         ecriture.ecriture0("\n", name)
@@ -183,23 +184,35 @@ if __name__ == "__main__":
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0("g = ", name)
         ecriture.ecriture0(adj, name)
+
         
         #nm_comun
         nm = poidsMots.presence_nom_commun(phrases)
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0("h = ", name)
         ecriture.ecriture0(nm, name)
+
         
         #verbe
         verbe = poidsMots.presence_verbe(phrases)
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0("i = ", name)
         ecriture.ecriture0(verbe, name)
-        break
+    
         c+=1
 
 
+    traitement = os.listdir()
 
+    for i in traitement:
+        if i == "conteneur.py" or i == "input.py"\
+           or i == "ligne de route.py" or i == "methode.py"\
+           or i == "perso.py" or i == "phrases.py"\
+           or i == "texte.py" or i == "traitement.py":
+            pass
+        else:
+            pass
+            #with open
 
 
 
