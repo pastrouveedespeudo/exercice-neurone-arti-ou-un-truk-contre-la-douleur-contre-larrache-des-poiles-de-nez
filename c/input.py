@@ -1,8 +1,13 @@
 from traitement import *
 from conteneur import *
 from methode import *
+import os
+
 
 genre = {"masculin":0, "feminin":0}
+A_f = [[],[],[],[],[],[],[],[],[],]
+A_m = [[],[],[],[],[],[],[],[],[],]
+
 
 class apprentissage1:
 
@@ -100,10 +105,10 @@ class apprentissage1:
 
 if __name__ == "__main__":
 
-
+    #TEXT10, TEXT, TEXT1, TEXT2, TEXT3, TEXT4, TEXT5,TEXT6,
+    #         TEXT7,TEXT8, TEXT9,
     #entrée = input("texte ?")
-    listeTEXT = [TEXT10, TEXT, TEXT1, TEXT2, TEXT3, TEXT4, TEXT5,TEXT6,
-             TEXT7,TEXT8, TEXT9, TEXT11,TEXT12,TEXT13,TEXT14,TEXT16]
+    listeTEXT = [TEXT11,TEXT12,TEXT13,TEXT14,TEXT16]
     
     apprentissage1 = apprentissage1()
     poidsPonctuation = poidsPonctuation()
@@ -111,7 +116,7 @@ if __name__ == "__main__":
     poidsTexte = poidsTexte()
     poidsMots = poidsMots()
     
-    c = 0
+    c = 10
     for i in listeTEXT:
         
         name = "requete{}.py".format(c)
@@ -137,10 +142,17 @@ if __name__ == "__main__":
         genre = apprentissage1.opération_pour_genre(phrases)
         genre2 = apprentissage1.opération_pour_le_genre2(genre)
         a = apprentissage1.le_genre(genre2)
+
+        if a["feminin"] == 1:
+            A_f[0].append(genre)
+        else:
+            A_m[0].append(genre)       
+        
         
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0("a = ", name)
         ecriture.ecriture0(a, name)
+        
         
 
         
@@ -149,60 +161,95 @@ if __name__ == "__main__":
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0('b = ', name)
         ecriture.ecriture0(str(ponctua), name)
-
+        
+        if a["feminin"] == 1:
+            A_f[1].append(ponctua)
+        else:
+            A_m[1].append(ponctua)
 
         #longueur_texte
         ecriture.ecriture0("\n", name)
         long = poidsTexte.longueurTexte(phrases)
         ecriture.ecriture0("c = ", name)
         ecriture.ecriture0(long, name)
-
+        
+        if a["feminin"] == 1:
+            A_f[2].append(long)
+        else:
+            A_m[2].append(long)
 
         #structure de phrase
         type_phrase = poidsTexte.structure_phrase(phrases)
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0("d = ", name)
         ecriture.ecriture0(type_phrase, name)
-        
-        
+        if a["feminin"] == 1:
+            A_f[3].append(type_phrase)
+        else:
+            A_m[3].append(type_phrase)
+
+            
         #impératif
         imperatif = poidsTexte.impératif(phrases)
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0("e = ", name)
         ecriture.ecriture0(imperatif, name)
-
+        if a["feminin"] == 1:
+            A_f[4].append(imperatif)
+        else:
+            A_m[4].append(imperatif)
 
         #pronom
         pronom = poidsMots.Pronom(phrases)
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0("f = ", name)
         ecriture.ecriture0(pronom, name)
-
+        if a["feminin"] == 1:
+            A_f[5].append(pronom)
+        else:
+            A_m[5].append(pronom)
         
         #adjectif
         adj = poidsMots.adjectif(phrases)
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0("g = ", name)
         ecriture.ecriture0(adj, name)
-
+        if a["feminin"] == 1:
+            A_f[6].append(adj)
+        else:
+            A_m[6].append(adj)
         
         #nm_comun
         nm = poidsMots.presence_nom_commun(phrases)
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0("h = ", name)
         ecriture.ecriture0(nm, name)
-
+        if a["feminin"] == 1:
+            A_f[7].append(nm)
+        else:
+            A_m[7].append(nm)
         
         #verbe
         verbe = poidsMots.presence_verbe(phrases)
         ecriture.ecriture0("\n", name)
         ecriture.ecriture0("i = ", name)
         ecriture.ecriture0(verbe, name)
-    
+        if a["feminin"] == 1:
+            A_f[8].append(verbe)
+        else:
+            A_m[8].append(verbe)
+
+      
         c+=1
 
+    with open("rerequete.py","a") as file:
+        if a["feminin"] == 1:
+            file.write(str(A_f))
+            file.write("\n")
 
- 
+        else:
+            file.write(str(A_m))
+            file.write("\n")
 
 
 
