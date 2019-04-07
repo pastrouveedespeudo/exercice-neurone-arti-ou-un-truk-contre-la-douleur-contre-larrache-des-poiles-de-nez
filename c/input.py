@@ -73,6 +73,20 @@ class apprentissage1:
                         if j[-nb:] == marque_feminin:
                             fem = True
 
+##
+##                path = "http://www.les-verbes.com/conjuguer.php?verbe={}"
+##                path = path.format(j.lower())
+##                requete = requests.get(path)
+##                page = requete.content
+##
+##                soup = BeautifulSoup(page, "html.parser")      
+##                propriete = soup.find_all("span", {"class":"arial-12-gris"})
+##                verbe = str(propriete).find("VERBE")
+##                propriete = soup.find_all("span", {"class":"arial-12-gris"})
+##                if verbe >= 0:
+##                    if j[-1] == "ée", "ie", "ue":
+##                        fem = True
+
         if fem == True:
             genre["feminin"] += 1
         else:
