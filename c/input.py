@@ -9,7 +9,7 @@ class apprentissage1:
         """découpage de phrase par pronom"""
         
         self.texte = texte
- 
+    
         liste = [[],[],[],[],[],[],[],[],[],[],[],[],
                  [],[],[],[],[],[],[],[],[],[],[],[],
                  [],[],[],[],[],[],[],[],[],[],[],[],
@@ -25,7 +25,7 @@ class apprentissage1:
                 liste[c].append(mot)
 
         liste2 = [i for i in liste if i != []]
-
+    
         return liste2
 
     def opération_pour_le_genre2(self, texte):
@@ -78,22 +78,29 @@ if __name__ == "__main__":
 
 
     #entrée = input("texte ?")
-    entrée = TEXT
-    entrée1 = "je suis très heureuse"
-
-    #opération sur le texte
+    liste = [TEXT, TEXT1, TEXT2, TEXT3, TEXT4, TEXT5,TEXT6,
+             TEXT7,TEXT8, TEXT9,TEXT10, TEXT11]
+    
     apprentissage1 = apprentissage1()
-    opé = premiere_opération()
+    
+    for i in liste:
+        entrée = i
+        entrée1 = "je suis très heureuse"
+
+        #opération sur le texte
+        
+        opé = premiere_opération()
 
 
-    #methode
-    text = opé.trait_texte(entrée1)
-    phrases = opé.traitement_phrase(text)
-    
-    genre = apprentissage1.opération_pour_genre(phrases)
-    genre2 = apprentissage1.opération_pour_le_genre2(genre)
-    apprentissage1.le_genre(genre2)
-    
+        #methode
+        text = opé.trait_texte(entrée)
+        phrases = opé.traitement_phrase(text)
+
+       
+        genre = apprentissage1.opération_pour_genre(phrases)
+        genre2 = apprentissage1.opération_pour_le_genre2(genre)
+        apprentissage1.le_genre(genre2)
+        
 
 
 
