@@ -79,8 +79,6 @@ class poidsTexte:
 
         return longueur
 
-    def type_de_texte(self, texte):
-        self.texte = texte
 
     def structure_phrase(self, texte):
         self.texte = texte
@@ -190,8 +188,7 @@ class poidsTexte:
                                 
             c+=1
         return liste
-        #a noter que maxime == maximiser tu pourrais comparer le mot avec le mot trouver
-        #dans le dico comme pour les fautes etdes fois ca fait pas lower...
+
 
 
     def impératif(self, texte):
@@ -252,26 +249,88 @@ class poidsMots:
         
         je = [i for i in self.texte if i == "je" or i == "Je"]
         tu = [i for i in self.texte if i == "tu" or i == "Tu"]
+        il = [i for i in self.texte if i == "il" or i == "Il"]
+        elle = [i for i in self.texte if i == "elle" or i == "Elle"]
+        nous = [i for i in self.texte if i == "nous" or i == "Nous"]
+        vous = [i for i in self.texte if i == "vous" or i == "Vous"]
+        ils = [i for i in self.texte if i == "Ils" or i == "ils"]
+        elles = [i for i in self.texte if i == "Elles" or i == "elles"]
+        
         nbJe = len(je)
         nbTu = len(tu)
+        nbil = len(il)
+        nbelle = len(elle)
+        nbnous = len(nous)
+        nbvous = len(vous)
+        nbils = len(ils)
+        nbelles = len(elles)
         
-        return nbJe, nbTu
-    #il semnle que pour les fille y'a plus de tu
-    #pour les mec plus de je par exemple
+        return nbJe, nbTu, nbIl,nb,Elle, nbElle, nbNous, nbVous, nbIls, nbElles
+
     
     def faute(self, texte):
         self.texte = texte
 
     def adjectif(self, texte):
         self.texte = texte
-    #fille jolie
-    #fille plus d'adj par ex
+        
+        liste = []
+      
+        for i in self.texte:
+            for j in i:
+                path = "https://www.le-dictionnaire.com/definition/{}"
+                path = path.format(j.lower())
+                requete = requests.get(path)
+                page = requete.content
 
+                soup = BeautifulSoup(page, "html.parser")      
+                propriete = soup.find("div", {"class":"defbox"})
+                adjectif = str(propriete).find("Adjectif")
+                if adjectif >= 0:
+                    liste.append(j)
+
+        print(liste)
+        return liste
 
     def presence_nom_commun(self, texte):
-        pass
-    #fille danse
-    #mec voiture
+        self.texte = texte
+
+        liste = []
+      
+        for i in self.texte:
+            for j in i:
+                path = "https://www.le-dictionnaire.com/definition/{}"
+                path = path.format(j.lower())
+                requete = requests.get(path)
+                page = requete.content
+
+                soup = BeautifulSoup(page, "html.parser")      
+                propriete = soup.find("div", {"class":"defbox"})
+                nc = str(propriete).find("Nom commun")
+                if nc >= 0:
+                    liste.append(j)
+     
+        return liste
+    
+    def presence_verbe(self, texte):
+        self.texte = texte
+
+        liste = []
+        for i in self.texte:
+            for j in i:
+                path = "http://www.les-verbes.com/conjuguer.php?verbe={}"
+                path = path.format(j.lower())
+                requete = requests.get(path)
+                page = requete.content
+                soup = BeautifulSoup(page, "html.parser")      
+                propriete = soup.find("span", {"class":"arial-12-gris"})
+                verbe = str(propriete).find("VERBE")
+                if verbe >= 0:
+                    liste.append(j)
+
+                
+ 
+        return liste
 
    
 
@@ -294,10 +353,12 @@ if __name__ == "__main__":
     premiere_opération = premiere_opération()
     txt = premiere_opération.trait_texte(TEXT)
     text1 = premiere_opération.traitement_phrase(txt)
+    poidsMots = poidsMots()
 
     
     poidsTexte = poidsTexte()
-    poidsTexte.structure_phrase(text1)
+
+    poidsMots.adjectif(text1)
 
 
 
