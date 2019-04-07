@@ -1,4 +1,11 @@
 class ecriture:
+
+    def ecriture0(self, carac, name):
+        self.carac = carac
+        self.name = name
+        
+        with open(self.name, "a") as file:
+            file.write(str(self.carac))
     
     def ecriture1(self, carac):
         self.carac = carac
@@ -29,7 +36,7 @@ class ecriture:
             file.write(" ]")
                        
 
-class ecriture:
+class ana:
     def analyse(self):
         pass
 
