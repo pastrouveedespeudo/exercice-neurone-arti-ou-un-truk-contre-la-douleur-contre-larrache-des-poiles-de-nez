@@ -244,10 +244,12 @@ if __name__ == "__main__":
 
     with open("rerequete.py","a") as file:
         if a["feminin"] == 1:
+            file.write("        ")
             file.write(str(A_f))
             file.write("\n")
 
         else:
+            file.write("        ")
             file.write(str(A_m))
             file.write("\n")
 
