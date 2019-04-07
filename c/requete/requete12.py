@@ -1,0 +1,10 @@
+#liste numero : 12
+a = {'feminin': 1, 'masculin': 0}
+b = {'.': 8, ',': 4, ';': 0, '!': 0, '?': 0, ':': 0}
+c = {'nb_phrase': 5, 'mot_phrase_max': 24}
+d = [['nom_commun', 'verbe', 'forme_article_défini', 'verbe', 'verbe', 'préposition', 'Forme_adjectif_numéral', 'verbe', 'préposition', 'verbe', 'verbe', 'préposition', 'pronom_personnel', 'préposition', 'verbe', 'conjonction_de_coordination', 'pronom_personnel', 'verbe', 'verbe', 'verbe', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'Aucun_mot_trouvé', 'forme_article_défini', 'verbe', 'forme_article_défini', 'Aucun_mot_trouvé', 'préposition', 'verbe', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'pronom_personnel', 'verbe', 'Forme_adjectif_numéral', 'verbe', 'adjectif', 'préposition', 'préposition', 'forme_de_nom_commun', 'verbe', 'Aucun_mot_trouvé', 'conjonction_de_coordination', 'Aucun_mot_trouvé', 'adjectif', 'forme_article_défini', 'verbe', 'préposition', 'adjectif', 'verbe', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'conjonction_de_coordination', 'Aucun_mot_trouvé', 'préposition', 'forme_article_défini', 'verbe', 'Aucun_mot_trouvé', 'pronom_personnel', 'verbe', 'préposition', 'forme_article_défini', 'verbe', 'préposition', 'verbe', 'forme_article_défini', 'verbe', 'verbe', 'préposition', 'verbe', 'nom_commun', 'préposition', 'nom_commun', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé'], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
+e = []
+f = (1, 0, 0, 1, 0, 0, 0, 2)
+g = ['claquant', 'bête', 'bienvoulu', 'ma']
+h = ['Papa', 'souris', 'espèce', 'boîte', 'fenêtre', 'main', 'boîte', 'folle', 'terreur']
+i = ['attrapait', 'souris', 'toutes', 'espèce', 'boîte', 'fermait', 'claquant', 'ne', 'pouvaient', 'sortir', 'regarder', 'fenêtre', 'voyais', 'jolie', 'vifs', 'tenir', 'main', 'boîte', 'courait', 'côtés', 'trouver', 'porte,de', 'plus', 'plus']

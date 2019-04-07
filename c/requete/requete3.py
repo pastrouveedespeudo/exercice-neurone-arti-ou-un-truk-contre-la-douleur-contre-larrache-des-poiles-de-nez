@@ -1,0 +1,10 @@
+#liste numero : 3
+a = {'feminin': 0, 'masculin': 1}
+b = {'.': 10, ',': 1, ';': 0, '!': 0, '?': 4, ':': 0}
+c = {'nb_phrase': 8, 'mot_phrase_max': 19}
+d = [['nom_commun', 'pronom_personnel', 'Aucun_mot_trouvé', 'préposition', 'pronom_personnel', 'verbe', 'conjonction', 'pronom_personnel', 'verbe', 'verbe', 'préposition', 'Forme_adjectif_numéral', 'verbe', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'adverbe', 'Aucun_mot_trouvé', 'pronom_personnel', 'verbe', 'verbe', 'verbe', 'préposition', 'nom_commun', 'conjonction_de_coordination', 'article_défini', 'nom_commun', 'Aucun_mot_trouvé', 'verbe', 'adverbe', 'verbe', 'verbe', 'verbe', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'forme_article_défini', 'Aucun_mot_trouvé', 'verbe', 'nom_commun', 'conjonction_de_coordination', 'Aucun_mot_trouvé', 'nom_commun', 'verbe', 'forme_article_défini', 'verbe', 'Aucun_mot_trouvé', 'nom_commun', 'verbe', 'adjectif', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'pronom_personnel', 'verbe', 'adverbe', 'adjectif', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'conjonction_de_coordination', 'pronom_personnel', 'adverbe', 'Aucun_mot_trouvé', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'Aucun_mot_trouvé', 'Aucun_mot_trouvé', 'nom_commun', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'conjonction_de_coordination', 'adjectif', 'nom_commun', 'Aucun_mot_trouvé', 'verbe', 'adverbe', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'Aucun_mot_trouvé'], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
+e = []
+f = (2, 0, 2, 0, 0, 0, 0, 0)
+g = ['fait', 'un', 'froid', 'fait', 'Julien', 'sympa', 'ta']
+h = ['Salut', 'semaine', 'canard', 'soleil', 'bien', 'même', 'connaissance', 'ami', 'est', 'bien', 'famille?']
+i = ['dire', 'suis', 'à', 'semaine', 'fait', 'un', 'froid', 'commence', 'à', 'me', 'manquer', 'débutent', 'fait', 'connaissance', "s'appelle", 'est', 'À']

@@ -1,0 +1,10 @@
+#liste numero : 14
+a = {'feminin': 0, 'masculin': 1}
+b = {'.': 10, ',': 6, ';': 0, '!': 0, '?': 0, ':': 0}
+c = {'nb_phrase': 6, 'mot_phrase_max': 24}
+d = [['forme_article_défini', 'forme_de_nom_commun', 'verbe', 'forme_article_défini', 'nom_commun', 'verbe', 'verbe', 'préposition', 'verbe', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'adverbe', 'verbe', 'nom_commun', 'Aucun_mot_trouvé', 'pronom_personnel', 'verbe', 'verbe', 'forme_article_défini', 'nom_commun', 'verbe', 'préposition', 'article_défini', 'verbe', 'Aucun_mot_trouvé', 'forme_de_nom_commun', 'article_défini', 'nom_commun', 'préposition', 'Aucun_mot_trouvé', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'pronom_personnel', 'pronom_personnel', 'verbe', 'adverbe', 'verbe', 'verbe', 'Aucun_mot_trouvé', 'verbe', 'verbe', 'préposition', 'adjectif', 'Aucun_mot_trouvé', 'préposition', 'verbe', 'préposition', 'verbe', 'forme_article_défini', 'adjectif', 'forme_article_défini', 'verbe', 'adjectif', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'pronom_personnel', 'forme_article_défini', 'verbe', 'Aucun_mot_trouvé', 'forme_article_défini', 'verbe', 'forme_article_défini', 'adverbe', 'conjonction_de_coordination', 'forme_article_défini', 'verbe', 'nom_commun', 'verbe', 'verbe', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé', 'verbe', 'verbe', 'nom_commun', 'Aucun_mot_trouvé', 'pronom_personnel', 'verbe', 'article_défini', 'nom_commun', 'conjonction', 'forme_article_défini', 'nom_commun', 'verbe', 'verbe', 'Aucun_mot_trouvé'], ['Aucun_mot_trouvé'], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
+e = []
+f = (0, 0, 0, 4, 0, 0, 0, 0)
+g = ['un', 'ses', 'bête', 'jaune', 'Un', 'autre']
+h = ['fille', 'soir', 'belette', 'sillon', 'nid', 'fuite', 'poil', 'nid', 'jour', 'rossignol', 'couleuvre']
+i = ['aimaient', "qu'elle", 'était', 'eux', 'un', 'put', 'voir', 'rampait', 'sillon', 'mit', 'à', 'crier', 'à', 'taper', 'mettre', 'fuite', 'poil', 'chassa', 'poursuivit', 'du', 'furent', 'sauvées', 'Un', 'autre', 'sauva', 'allait', 'dévorer']
