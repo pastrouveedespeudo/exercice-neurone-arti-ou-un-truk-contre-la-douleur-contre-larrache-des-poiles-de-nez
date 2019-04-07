@@ -73,7 +73,7 @@ class apprentissage1:
                         if j[-nb:] == marque_feminin:
                             fem = True
 
-##
+
 ##                path = "http://www.les-verbes.com/conjuguer.php?verbe={}"
 ##                path = path.format(j.lower())
 ##                requete = requests.get(path)
@@ -84,7 +84,7 @@ class apprentissage1:
 ##                verbe = str(propriete).find("VERBE")
 ##                propriete = soup.find_all("span", {"class":"arial-12-gris"})
 ##                if verbe >= 0:
-##                    if j[-1] == "ée", "ie", "ue":
+##                    if j[-1] == "ée" or j[-1] ==  "ie" or j[-1] ==  "ue":
 ##                        fem = True
 
         if fem == True:
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
     #entrée = input("texte ?")
     liste = [TEXT10, TEXT, TEXT1, TEXT2, TEXT3, TEXT4, TEXT5,TEXT6,
-             TEXT7,TEXT8, TEXT9, TEXT11]
+             TEXT7,TEXT8, TEXT9, TEXT11,TEXT12,TEXT13,TEXT14,TEXT16]
     
     apprentissage1 = apprentissage1()
     
@@ -118,15 +118,32 @@ if __name__ == "__main__":
         opé = premiere_opération()
 
 
-        #methode
+        #methode traitement de texte
         text = opé.trait_texte(entrée)
         phrases = opé.traitement_phrase(text)
 
-       
+        #methode genre
         genre = apprentissage1.opération_pour_genre(phrases)
         genre2 = apprentissage1.opération_pour_le_genre2(genre)
         apprentissage1.le_genre(genre2)
-            
+
+        #ponctuation
+
+
+        #longueur_texte
+
+        #structure de phrase
+
+        
+        #impératif
+
+        #pronom
+
+        #adjectif
+
+        #nm_comun
+
+        #verbe
 
 
 
