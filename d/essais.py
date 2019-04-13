@@ -104,7 +104,23 @@ def reconnaissance_rond():
 
 
 
+#ptetre que ca ca peut donner un truk ca donne un demi cercle du gros cercle qui selon cv2 n'en est pas un...
+def reconnaissance_rond():
 
+    im = cv2.imread('rond.png')
+
+    liste = []
+
+
+    c = 0
+    for x in range(im.shape[0]):
+        for y in range(im.shape[1]):
+            if im[x,y][0] == 0 and im[x,y][1] == 0 and  im[x,y][2] == 0:
+                c+=1
+                if c == 10:
+                    liste.append((x,y))
+            else:
+                c = 0
 
 
 
