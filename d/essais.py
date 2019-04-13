@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from PIL import Image, ImageTk
 import argparse
+import sys
 
 def a():
     image = cv2.imread('Pikachu6.jpg')
@@ -49,12 +50,56 @@ def c(liste_rond):
 
 def reconnaissance_rond():
 
-    img = cv2.imread('rond.png',0)
-    for x in range(image.shape[0]):
-        for y in range(image.shape[1]):
+    im = cv2.imread('rond.png')
+
+    liste = []
+
+    for x in range(im.shape[0]):
+        for y in range(im.shape[1]):
+            if im[x,y][0] == 0 and im[x,y][1] == 0 and  im[x,y][2] == 0:
+                liste.append((x,y))
+    print(liste)
+
+
+    liste2 = []
+
+    c=0
+    for i in liste:
+        print(liste,liste[c+1][0])
+        try:
+            if i[0] == liste[c+1][0] and\
+               i[0] == liste[c+2][0] and\
+               i[0] == liste[c+3][0] and\
+               i[0] == liste[c+4][0] and\
+               i[0] == liste[c+5][0] and\
+               i[0] == liste[c+6][0] and\
+               i[0] == liste[c+7][0] and\
+               i[0] == liste[c+8][0] and\
+               i[0] == liste[c+9][0] and\
+               i[0] == liste[c+10][0]:
+                liste2.append((liste[c], liste[c+1],
+                              liste[c+2],
+                              liste[c+3],
+                              liste[c+4],
+                              liste[c+5],
+                              liste[c+6],
+                              liste[c+7],
+                              liste[c+8],
+                              liste[c+9],
+                              liste[c+10]))
+
+        except:
+            pass
+
+        
+        c+=10
 
 
 
+    print(liste2)
+
+
+    cv2.imshow("output transform", im)
 
 
 
