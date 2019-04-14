@@ -1,4 +1,15 @@
-c pcque javais pas mis en edge en noir et blanc bizzare quoi... et en vrai ben chui dépasser... deja hugue c'est qui ? de deux... ben ouais JAI TROP HATE  dapprendre par coeur ce truk de geometrie cv2 le type y croyais savoir se servir de cv2 
+pour taleur
+
+1- on prend le rose (le marron et a ussi le jaune clair...)
+
+2- on refais l'image (normalement faut faire une copie) en blanc
+
+3- on detect la forme (normalement ca enleve le "bruit")
+
+4 -on la refait la forme en trait de 100 pour faire une grosse boule
+
+5 - on detecte la forme si c rond
+
 
 
 j'ai compris pour les reseau neurono, jvais faire ca avec pikachu ou pas pikachu facile pcque il a des truk rouges sur les joues, en gros faut juste que ca dise pika ou pas pika c tout et les plus dur tous les truks
