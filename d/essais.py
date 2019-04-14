@@ -50,77 +50,41 @@ def c(liste_rond):
 
 def reconnaissance_rond():
 
-    im = cv2.imread('rond.png')
+    image = cv2.imread('rond.png')
+    print(image.shape[0])
 
-    liste = []
+    cerclex = 0
+    cercley = 0
+    
+    liste_rond = []
+    
+    for x in range(image.shape[0]):
+            
+        if cerclex >= image.shape[0] - 40:
+    
+            cerclex = 0
+            cercley += 40
+            
+        if cercley >= image.shape[1] -40:
+            break
+        
+        cercle = cv2.circle(image, (cerclex, cercley), 20, (0, 0, 255), 1)
 
-    for x in range(im.shape[0]):
-        for y in range(im.shape[1]):
-            if im[x,y][0] == 0 and im[x,y][1] == 0 and  im[x,y][2] == 0:
-                liste.append((x,y))
-    print(liste)
 
-
-    liste2 = []
-
-    c=0
-    for i in liste:
-        print(liste,liste[c+1][0])
-        try:
-            if i[0] == liste[c+1][0] and\
-               i[0] == liste[c+2][0] and\
-               i[0] == liste[c+3][0] and\
-               i[0] == liste[c+4][0] and\
-               i[0] == liste[c+5][0] and\
-               i[0] == liste[c+6][0] and\
-               i[0] == liste[c+7][0] and\
-               i[0] == liste[c+8][0] and\
-               i[0] == liste[c+9][0] and\
-               i[0] == liste[c+10][0]:
-                liste2.append((liste[c], liste[c+1],
-                              liste[c+2],
-                              liste[c+3],
-                              liste[c+4],
-                              liste[c+5],
-                              liste[c+6],
-                              liste[c+7],
-                              liste[c+8],
-                              liste[c+9],
-                              liste[c+10]))
-
-        except:
-            pass
+        cerclex+=40
 
         
-        c+=10
+    print(liste_rond)
+
+    cv2.imshow("output transform", image)
+
+
+    
 
 
 
-    print(liste2)
 
 
-    cv2.imshow("output transform", im)
-
-
-
-
-#ptetre que ca ca peut donner un truk ca donne un demi cercle du gros cercle qui selon cv2 n'en est pas un...
-def reconnaissance_rond():
-
-    im = cv2.imread('rond.png')
-
-    liste = []
-
-
-    c = 0
-    for x in range(im.shape[0]):
-        for y in range(im.shape[1]):
-            if im[x,y][0] == 0 and im[x,y][1] == 0 and  im[x,y][2] == 0:
-                c+=1
-                if c == 10:
-                    liste.append((x,y))
-            else:
-                c = 0
 
 
 
