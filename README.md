@@ -6,3 +6,5 @@ avant doublié en gros, on prend l'image on la reduit, on prend des caracteristi
 et on presente de nouvelle image et par exemple y'a 2 pts rond rouge == 1 et son museau == 0.2 et son corps jaune == 1 alors c un pika et hier nuit j'ai vla pensé ben nan y'a aucun autre pokémon qui a ca donc facile et pour la pos prend chaque pts du corps et faire la division pour le placement g,d,h,b mais ca c hyper dur
 
 raichu psychokawk... ouais pendant les 40 telechargement de postgresql j'ai regarder des video youtube qui m'ont mené chai pas comment a dautre video youtube du genre les 15 pouvoir supreme des pokemons...
+
+ok la le but c le reso alors la semaine pro je ferai un truk sur les rond mais la jai pas le temps que les couleurs
