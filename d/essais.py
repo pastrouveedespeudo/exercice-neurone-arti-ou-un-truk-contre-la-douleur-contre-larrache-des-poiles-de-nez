@@ -31,50 +31,33 @@ def a():
  
     return liste_rond
 
-
+b = a()
 
 def c(liste_rond):
 
 
-    image2 = cv2.imread('rond.png')
-    
-    for i in liste_rond:
-        try:
-            image2[i[0], i[1]] = 0,0,0
-        except:
-            pass
-    cv2.imwrite("rond.png", image2)
+    print(liste_rond)
 
 
 
 
-def reconnaissance_rond():
+c(b)
+
+
+
+
+
+
+
+
+
+
+
+
+def reconnaissance_rond(liste):
 
     image = cv2.imread('rond.png')
-    print(image.shape[0])
 
-    cerclex = 0
-    cercley = 0
-    
-    liste_rond = []
-    
-    for x in range(image.shape[0]):
-            
-        if cerclex >= image.shape[0] - 40:
-    
-            cerclex = 0
-            cercley += 40
-            
-        if cercley >= image.shape[1] -40:
-            break
-        
-        cercle = cv2.circle(image, (cerclex, cercley), 20, (0, 0, 255), 1)
-
-
-        cerclex+=40
-
-        
-    print(liste_rond)
 
     cv2.imshow("output transform", image)
 
@@ -88,7 +71,7 @@ def reconnaissance_rond():
 
 
 
-reconnaissance_rond()
+#reconnaissance_rond()
 
 
 def recolorie_image(self,image):
