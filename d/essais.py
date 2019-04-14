@@ -10,7 +10,7 @@ import sys, cv2
 
 
 def extraction_rose():
-    image = cv2.imread('Pikachu2.jpg')
+    image = cv2.imread('pikachu5.png')
 
     compteur_rond_rouge = 0
 
@@ -33,7 +33,10 @@ def extraction_rose():
                image[x,y][0] <= 55 or\
                image[x,y][2] >= 200 and\
                image[x,y][1] <= 32 and\
-               image[x,y][0] <= 57:
+               image[x,y][0] <= 57 or\
+               image[x,y][0] <= 130 and\
+               image[x,y][1] <= 70 and\
+               image[x,y][2] >= 200:
                 image[x,y] = 255,255,255
                 liste_rond.append((x,y))
                 compteur_rond_rouge += 1
@@ -46,8 +49,8 @@ def extraction_rose():
 
 
 
-
-    #image[300,380:400] = 0,255,0
+    print(image[630:410,440])
+    image[630,410:450] = 0,255,0
     
 
         
@@ -75,13 +78,6 @@ def recon(liste):
   
 extraction_rose()
 ##recon(b)
-
-
-
-
-
-
-
 
 
 
