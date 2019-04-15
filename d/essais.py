@@ -18,12 +18,13 @@ def refond_test_image(image):
 
             
 def extraction_rose():
-    image = cv2.imread('pikachu5.png')
+    image = cv2.imread('pikachu9.png')
 
     compteur_rond_rouge = 0
 
     liste_rond = []
-
+    #un des truk les plus chiant de ma vie
+    
     for x in range(image.shape[0]):
         for y in range(image.shape[1]):
             if image[x,y][2] >= image[x,y][1] + 50 and\
@@ -44,7 +45,39 @@ def extraction_rose():
                image[x,y][0] <= 57 or\
                image[x,y][0] <= 130 and\
                image[x,y][1] <= 70 and\
-               image[x,y][2] >= 200:
+               image[x,y][2] >= 200 or\
+               image[x,y][0] <= 49 and\
+               image[x,y][1] <= 90 and\
+               image[x,y][2] >= 230 or\
+               image[x,y][0] <= 45 and\
+               image[x,y][1] <= 53 and\
+               image[x,y][2] >= 160 and\
+               image[x,y][2] > image[x,y][0] + 100 and\
+               image[x,y][2] > image[x,y][1] + 100 or\
+               image[x,y][0] <= 50 and\
+               image[x,y][1] <= 60 and\
+               image[x,y][2] >= 160 or\
+               image[x,y][0] <= 45 and\
+               image[x,y][1] <= 50 and\
+               image[x,y][2] >= 150 or\
+               image[x,y][0] <= 25 and\
+               image[x,y][1] <= 70 and\
+               image[x,y][2] >= 150 or\
+               image[x,y][0] <= 30 and\
+               image[x,y][1] <= 90 and\
+               image[x,y][2] >= 160 and\
+               image[x,y][2] > image[x,y][1] + 60 and\
+               image[x,y][2] > image[x,y][0] + 140 or\
+               image[x,y][0] <= 30 and\
+               image[x,y][1] <= 90 and\
+               image[x,y][2] >= 160 or\
+               image[x,y][0] <= 50 and\
+               image[x,y][1] <= 60 and\
+               image[x,y][2] >= 130 or\
+               image[x,y][0] <= 10 and\
+               image[x,y][1] <= 45 and\
+               image[x,y][2] >= 120:
+
                 image[x,y] = 255,255,255
                 liste_rond.append((x,y))
                 compteur_rond_rouge += 1
@@ -57,12 +90,22 @@ def extraction_rose():
 
 
 
-    print(image[630:410,440])
-    image[630,410:450] = 0,255,0
+    print(image[128,216])
+    print(image[129,216])
+    print(image[130,216])
+    print(image[131,216])
+    print(image[132,216])
+    print(image[133,216])
+    print(image[134,216])
+    
+    image[126,218:250] = 0,255,0
     
 
-        
-    cv2.imshow("output transform", image)
+    cv2.startWindowThread()
+    cv2.namedWindow("preview")
+    cv2.imshow("preview", image)
+
+    cv2.waitKey()
     return liste_rond
 
 
