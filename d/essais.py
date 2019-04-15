@@ -8,17 +8,26 @@ from pylab import *
 import sys, cv2
 
 
-def refond_test_image(image):
-    image = cv2.imread('pass')
+def refond_test_image(image, nom):
+    image = cv2.imread(image)
     for x in range(image.shape[0]):
         for y in range(image.shape[1]):
             image[x,y] = 0,255,0
 
 
-
+    cv2.imwrite(str(nom), image)
+    
+def refond_test_image2(image, nom):
+    image = cv2.imread(image)
+    for x in range(image.shape[0]):
+        for y in range(image.shape[1]):
+            image[x,y] = 255,255,255
             
-def extraction_rose():
-    image = cv2.imread('pikachu9.png')
+
+    cv2.imwrite(str(nom), image)
+            
+def extraction_rose(image):
+    image = cv2.imread(image)
 
     compteur_rond_rouge = 0
 
@@ -82,30 +91,17 @@ def extraction_rose():
                 liste_rond.append((x,y))
                 compteur_rond_rouge += 1
     
-    print(compteur_rond_rouge)
+
     
     for i in liste_rond:
         image[i[0],i[1]] = 255,255,255
 
 
-
-
-    print(image[128,216])
-    print(image[129,216])
-    print(image[130,216])
-    print(image[131,216])
-    print(image[132,216])
-    print(image[133,216])
-    print(image[134,216])
-    
-    image[126,218:250] = 0,255,0
-    
-
-    cv2.startWindowThread()
-    cv2.namedWindow("preview")
-    cv2.imshow("preview", image)
-
-    cv2.waitKey()
+    #cv2.startWindowThread()
+    #cv2.namedWindow("preview")
+    #cv2.imshow("preview", image)
+    #cv2.waitKey()
+        
     return liste_rond
 
 
@@ -113,21 +109,21 @@ def extraction_rose():
 
 def recon(liste):
 
-    print(liste)
     image = cv2.imread('rond2.png')
+
+
+    c = 0
 
     for i in liste:
         image[i[0],i[1]] = 255,255,255
 
-    cv2.imshow("output transform", image)
+
     cv2.imwrite("rond2.png", image)
 
 
 
-
-
-def contour():
-    raw_image = cv2.imread('rond2.png')
+def contour(image):
+    raw_image = cv2.imread(image)
     bilateral_filtered_image = cv2.bilateralFilter(raw_image, 5, 175, 175)
     edge_detected_image = cv2.Canny(bilateral_filtered_image, 75, 200)
     _, contours, hierarchy = cv2.findContours(edge_detected_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -141,63 +137,99 @@ def contour():
 
     cv2.drawContours(raw_image, contour_list,  -1, (0,0,0), 100)
 
+
+    cv2.startWindowThread()
+    cv2.namedWindow("preview")
+    cv2.imshow("preview", raw_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
     cv2.imwrite("yo.png", raw_image)
 
 
-def recup_pts():
+
+def recup_pts(image):
 
     listeee = []
-    imageee = cv2.imread('yo.png')
+    imageee = cv2.imread(image)
     for x in range(imageee.shape[0]):
         for y in range(imageee.shape[1]):
       
-            if imageee[x,y][0] <= 10 and\
-               imageee[x,y][1] <= 10 and\
-               imageee[x,y][2] <= 10:
+            if imageee[x,y][0] == 0 and\
+               imageee[x,y][1] == 0 and\
+               imageee[x,y][2] == 0:
                 listeee.append((x,y))
 
+                
+  
     return listeee
 
-def traitement_liste(listeee):
+
+def traitement_liste(liste):
     
     image2 = cv2.imread('ya.png')
 
-    for i in listeee:
+    for i in liste:
         image2[i[0], i[1]] = 0,0,0
 
-    cv2.imshow('dzad.png', image2)
+
     cv2.imwrite("dzad.png", image2)
     return 'dzad.png'
 
+
+
 def detection_rond(nom_image):
-    
-    img = cv2.imread(nom_image,0)#dzad
-    img = cv2.medianBlur(img,5)
-    cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
+    try:
+        img = cv2.imread(nom_image,0)
+        img = cv2.medianBlur(img,5)
+        cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
 
-    circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,80,
-                            param1=50,param2=20,minRadius=0,maxRadius=0)
+        circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,80,
+                                param1=50,param2=20,minRadius=0,maxRadius=0)
 
-    circles = np.uint16(np.around(circles))
-    for i in circles[0,:]:
-        # draw the outer circle
-        cv2.circle(cimg,(i[0],i[1]),i[2],(0,255,0),2)
-        # draw the center of the circle
-        cv2.circle(cimg,(i[0],i[1]),2,(0,0,255),3)
+        circles = np.uint16(np.around(circles))
+        for i in circles[0,:]:
+            # draw the outer circle
+            cv2.circle(cimg,(i[0],i[1]),i[2],(0,255,0),2)
+            # draw the center of the circle
+            cv2.circle(cimg,(i[0],i[1]),2,(0,0,255),3)
 
-    cv2.imshow('detected circles',cimg)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
 
-    if circles:
-        return True
-    else:
+        cv2.startWindowThread()
+        cv2.namedWindow("preview")
+        cv2.imshow("preview", cimg)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
+        if circles:
+            return True
+
+    except:
         return False
 
 
 
-extraction_rose()
-##recon(b)
+refond_test_image('rond2.png', 'rond2.png')
+refond_test_image('yo.png', 'yo.png')
+refond_test_image2('ya.png', 'ya.png')
+refond_test_image2('dzad.png', 'dzad.png')
+
+extra = extraction_rose('pikachu1.jpg')
+recon(extra)
+##contour('rond2.png')
+##liste = recup_pts('yo.png')
+##traitement_liste(liste)
+##rond = detection_rond("dzad.png")
+##
+##print(rond)
+
+
+
+
+
+
+
+
+
 
 
 
