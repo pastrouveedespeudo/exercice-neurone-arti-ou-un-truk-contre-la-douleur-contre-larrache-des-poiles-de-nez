@@ -1,3 +1,9 @@
+faut supprimer le truk du milieu t'as test:
+
+dajouter 100 pixels si dans la liste les pixel se suivent pas ca decalle tous les pixels
+
+
+
 pour taleur
 
 1- on prend le rose (le marron et a ussi le jaune clair...)
