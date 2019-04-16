@@ -1,3 +1,7 @@
+sinon t'as juste a dire si y'a du rouge alors
+
+sinon juste un haarscade ^^
+
 ton erreur c'est que tu fais ca pour une image, ca marche mais les 10 suivantes ? bon pas grave ca marche sil ouvre pas la bouche supprime la bouche sinon fais:
 
 on prend le plus a g le plus a d on supprime le milieu
