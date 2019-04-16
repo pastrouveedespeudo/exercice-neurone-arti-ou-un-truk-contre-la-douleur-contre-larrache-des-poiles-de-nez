@@ -5,10 +5,7 @@ ou liste a trois liste
 si ya du vert += 1 et on supprime juste la 2eme....
 
 
-faut supprimer le truk du milieu t'as test:
-
-dajouter 100 pixels si dans la liste les pixel se suivent pas ca decalle tous les pixels
-
+et faut stop ces grosses listes tavais trouver comment ajouter une liste dans un liste ps: ca marche avec toute la liste 
 
 
 pour taleur
