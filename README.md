@@ -1,3 +1,6 @@
+ton erreur c'est que tu fais ca pour une image, ca marche mais les 10 suivantes ? bon pas grave ca marche sil ouvre pas la bouche supprime la bouche
+
+
 faut supprimer le truk du milieu t'as test:
 
 dajouter 100 pixels si dans la liste les pixel se suivent pas ca decalle tous les pixels
