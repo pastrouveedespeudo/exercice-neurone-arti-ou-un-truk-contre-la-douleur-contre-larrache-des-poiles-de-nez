@@ -1,4 +1,8 @@
-ton erreur c'est que tu fais ca pour une image, ca marche mais les 10 suivantes ? bon pas grave ca marche sil ouvre pas la bouche supprime la bouche
+ton erreur c'est que tu fais ca pour une image, ca marche mais les 10 suivantes ? bon pas grave ca marche sil ouvre pas la bouche supprime la bouche sinon fais:
+
+on prend le plus a g le plus a d on supprime le milieu
+ou liste a trois liste
+si ya du vert += 1 et on supprime juste la 2eme....
 
 
 faut supprimer le truk du milieu t'as test:
