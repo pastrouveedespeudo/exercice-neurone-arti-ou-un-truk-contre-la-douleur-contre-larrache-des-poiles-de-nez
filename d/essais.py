@@ -98,8 +98,6 @@ def extraction_rose(image):
     return liste_rond
 
 
-
-
 def recon(liste):
 
     image = cv2.imread('rond2.png')
@@ -108,7 +106,6 @@ def recon(liste):
 
     for i in liste:
         image[i[0],i[1]] = 255,255,255
-
 
     cv2.imwrite("rond2.png", image)
 
@@ -265,10 +262,7 @@ def nettoyage4(y):
     cv2.imwrite("image_rond_pika.png", image)
 
     
-    cv2.startWindowThread()
-    cv2.namedWindow("preview")
-    cv2.imshow("preview", image)
-    cv2.waitKey(0)
+
     cv2.destroyAllWindows()
 
 
@@ -285,7 +279,7 @@ def contour(image):
         if ((len(approx) > 8) & (len(approx) < 23) & (area > 30) ):
             contour_list.append(contour)
 
-    cv2.drawContours(raw_image, contour_list,  -1, (0,0,0), 100)
+    cv2.drawContours(raw_image, contour_list,  -1, (0,0,0), 60)
 
 
     cv2.startWindowThread()
@@ -295,35 +289,6 @@ def contour(image):
     cv2.destroyAllWindows()
     cv2.imwrite("yo.png", raw_image)
 
-
-
-def recup_pts(image):
-
-    listeee = []
-    imageee = cv2.imread(image)
-    for x in range(imageee.shape[0]):
-        for y in range(imageee.shape[1]):
-      
-            if imageee[x,y][0] == 0 and\
-               imageee[x,y][1] == 0 and\
-               imageee[x,y][2] == 0:
-                listeee.append((x,y))
-
-                
-  
-    return listeee
-
-
-def traitement_liste(liste):
-    
-    image2 = cv2.imread('ya.png')
-
-    for i in liste:
-        image2[i[0], i[1]] = 0,0,0
-
-
-    cv2.imwrite("dzad.png", image2)
-    return 'dzad.png'
 
 
 
@@ -337,12 +302,19 @@ def detection_rond(nom_image):
                                 param1=50,param2=20,minRadius=0,maxRadius=0)
 
         circles = np.uint16(np.around(circles))
+
+        nombre = 0
+        for i in circles:
+            for j in i:
+                nombre += 1
+                
         for i in circles[0,:]:
             # draw the outer circle
             cv2.circle(cimg,(i[0],i[1]),i[2],(0,255,0),2)
             # draw the center of the circle
             cv2.circle(cimg,(i[0],i[1]),2,(0,0,255),3)
 
+            
 
         cv2.startWindowThread()
         cv2.namedWindow("preview")
@@ -350,12 +322,10 @@ def detection_rond(nom_image):
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
-        if circles:
-            return True
+        return nombre
 
     except:
-        return False
-
+        return '0 rond'
 
 
 refond_test_image('rond2.png', 'rond2.png')
@@ -370,13 +340,10 @@ c = nettoyage2(b)
 d = nettoyage3(c)
 e = nettoyage4(d)
 
+contour("image_rond_pika.png")
+rond = detection_rond("yo.png")
 
-##contour('rond2.png')
-##liste = recup_pts('yo.png')
-##traitement_liste(liste)
-##rond = detection_rond("dzad.png")
-##
-##print(rond)
+print(rond)
 
 
 
