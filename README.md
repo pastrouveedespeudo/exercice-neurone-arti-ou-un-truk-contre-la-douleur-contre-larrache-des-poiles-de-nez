@@ -1,6 +1,6 @@
 corps pika
 
-boule rouge
+boule rouge par contre avec un carre ca fait un gros carré mais le truk detecte quand meme un rond...
 
 les yeux mtn noir et blanc dedans
 
