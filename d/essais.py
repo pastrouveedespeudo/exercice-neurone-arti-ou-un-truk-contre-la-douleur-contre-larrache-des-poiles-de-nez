@@ -92,16 +92,9 @@ def extraction_rose(image):
                 compteur_rond_rouge += 1
     
 
-    
     for i in liste_rond:
         image[i[0],i[1]] = 255,255,255
 
-
-    #cv2.startWindowThread()
-    #cv2.namedWindow("preview")
-    #cv2.imshow("preview", image)
-    #cv2.waitKey()
-        
     return liste_rond
 
 
@@ -111,8 +104,7 @@ def recon(liste):
 
     image = cv2.imread('rond2.png')
 
-
-    c = 0
+    print(liste)
 
     for i in liste:
         image[i[0],i[1]] = 255,255,255
@@ -120,6 +112,164 @@ def recon(liste):
 
     cv2.imwrite("rond2.png", image)
 
+    return liste
+
+
+def nettoyage1(liste):
+
+
+    liste1 = []
+    c = 0
+    for i in liste[:-2]:
+        if i[1] + 1 == liste[c+1][1]:
+            liste1.append(i)
+        
+        c+=1
+
+    return liste1
+
+def nettoyage2(liste):
+ 
+    
+    liste2 = []
+    c = 0
+    for i in liste[:-2]:
+        if i[1] + 1 == liste[c+1][1] and\
+           i[0] == liste[c+1][0]:
+            liste2.append(i)
+        c+=1
+        
+    return liste2
+
+def nettoyage3(liste2):
+
+    b = [[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],
+         [],[],[],[],[],[],[],[],[],[],[],[],[]]
+
+
+
+    liste3 = []
+
+    c = 0
+    d = 0
+
+    for i in liste2[:-2]:
+     
+        if i[0] == liste2[c + 1][0] and\
+           i[1] + 1 == liste2[c + 1][1]:
+            b[d].append(i)
+        else:
+            d+=1
+        
+        c+=1
+
+    y = []
+    for i in b:
+        if i == []:
+            pass
+        else:
+            if len(i) <= 9:
+                pass
+            else:
+                y.append(i)
+
+    return y
+
+
+
+def nettoyage4(y):
+
+    c = 0
+    d = 0
+    yy = []
+    aze = []
+
+    for i in y:
+        for j in i:
+            yy.append(j)
+
+        c+=1
+        
+    for i in yy:
+        aze.append(i[1])
+            
+    aze = set(aze)
+    aze = list(aze)
+    aze.sort()
+    print(aze)
+
+    image = cv2.imread('rond2.png')
+    
+    yoo = [[],[],[]]
+
+    c=0
+    d =0
+    for i in aze:
+        try:
+            if i + 1 != aze[c + 1]:
+                d+=1
+            else:
+                yoo[d].append(i)
+        except:
+            pass
+        c+=1
+
+    oo = []
+    a = ""
+
+    for i in yy:
+        a = ""
+        for j in yoo[1]:
+            if j == i[1]:
+                a = True
+
+        if a == True:
+            pass
+        else:
+            image[i[0],i[1]] = 255,255,255
+
+    cv2.imwrite("image_rond_pika.png", image)
+
+    
+    cv2.startWindowThread()
+    cv2.namedWindow("preview")
+    cv2.imshow("preview", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 
 def contour(image):
@@ -214,7 +364,13 @@ refond_test_image2('ya.png', 'ya.png')
 refond_test_image2('dzad.png', 'dzad.png')
 
 extra = extraction_rose('pikachu1.jpg')
-recon(extra)
+
+b = nettoyage1(extra)
+c = nettoyage2(b)
+d = nettoyage3(c)
+e = nettoyage4(d)
+
+
 ##contour('rond2.png')
 ##liste = recup_pts('yo.png')
 ##traitement_liste(liste)
