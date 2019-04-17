@@ -1,31 +1,8 @@
-sinon t'as juste a dire si y'a du rouge alors
+corps pika
 
-et en plus j'ai une sale gueule dessus ptin et j'ai chopé leur tic j'ai pleins de tic pas a moi bon pas grave pause faut juste remettre tout en anglais pas de faute et mieux faire la présentation ouf que le site est fonctionnelle et que toutes les consignes sont réspectaient pcque sinon jaurai mis plus de temps
+boule rouge
 
-sinon juste un haarscade ^^
-
-ton erreur c'est que tu fais ca pour une image, ca marche mais les 10 suivantes ? bon pas grave ca marche sil ouvre pas la bouche supprime la bouche sinon fais:
-
-on prend le plus a g le plus a d on supprime le milieu
-ou liste a trois liste
-si ya du vert += 1 et on supprime juste la 2eme....
-
-
-et faut stop ces grosses listes tavais trouver comment ajouter une liste dans un liste ps: ca marche avec toute la liste 
-
-
-pour taleur
-
-1- on prend le rose (le marron et a ussi le jaune clair...)
-
-2- on refais l'image (normalement faut faire une copie) en blanc
-
-3- on detect la forme (normalement ca enleve le "bruit")
-
-4 -on la refait la forme en trait de 100 pour faire une grosse boule
-
-5 - on detecte la forme si c rond
-
+les yeux mtn noir et blanc dedans
 
 
 j'ai compris pour les reseau neurono, jvais faire ca avec pikachu ou pas pikachu facile pcque il a des truk rouges sur les joues, en gros faut juste que ca dise pika ou pas pika c tout et les plus dur tous les truks
