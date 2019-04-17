@@ -20,7 +20,7 @@ image = cv2.imread('pikachu2.jpg',0)
 liste = []
 for x in range(image.shape[0]):
     for y in range(image.shape[1]):
-        if image[x,y] < 240:
+        if image[x,y] > 240:
             liste.append((x,y))
 
                 
