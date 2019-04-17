@@ -1,5 +1,7 @@
 sinon t'as juste a dire si y'a du rouge alors
 
+et en plus j'ai une sale gueule dessus ptin
+
 sinon juste un haarscade ^^
 
 ton erreur c'est que tu fais ca pour une image, ca marche mais les 10 suivantes ? bon pas grave ca marche sil ouvre pas la bouche supprime la bouche sinon fais:
