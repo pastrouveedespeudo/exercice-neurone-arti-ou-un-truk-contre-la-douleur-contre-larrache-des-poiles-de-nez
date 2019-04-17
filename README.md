@@ -1,6 +1,6 @@
 sinon t'as juste a dire si y'a du rouge alors
 
-et en plus j'ai une sale gueule dessus ptin
+et en plus j'ai une sale gueule dessus ptin et j'ai chopé leur tic j'ai pleins de tic pas a moi bon pas grave pause faut juste remettre tout en anglais pas de faute et mieux faire la présentation ouf que le site est fonctionnelle et que toutes les consignes sont réspectaient pcque sinon jaurai mis plus de temps
 
 sinon juste un haarscade ^^
 
