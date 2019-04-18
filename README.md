@@ -1,6 +1,6 @@
 si rouge -> noir -> rouge alors on prend
 
-l'odt qui fait une erruer fatal... ca m'a ken impossible de récup le fichier ca me tuue 
+l'odt qui fait une erruer fatal... ca m'a ken impossible de récup le fichier ca me tuue et jfais toujours la meme technique... ptetre qui faudrait la changer... merde j'ai appelé l'interim pour faire genre c batard m'ont directe rappelé chui deg jsp que l'autre me rappel...
 
 
 corps pika
