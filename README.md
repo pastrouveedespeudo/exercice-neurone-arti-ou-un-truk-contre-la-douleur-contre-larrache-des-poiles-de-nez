@@ -1,3 +1,8 @@
+si rouge -> noir -> rouge alors on prend
+
+l'odt qui fait une erruer fatal... ca m'a ken impossible de récup le fichier ca me tuue 
+
+
 corps pika
 
 boule rouge par contre avec un carre ca fait un gros carré mais le truk detecte quand meme un rond...
