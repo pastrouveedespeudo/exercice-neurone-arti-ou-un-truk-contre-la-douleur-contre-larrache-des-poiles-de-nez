@@ -1,4 +1,8 @@
-si rouge -> noir -> rouge alors on prend
+redimensionne l'image avec pil au meme dimension que l'image principale
+
+superpose les
+
+verifie que tes pts == blanc et que si autour c du noir alors c les yeux, ya dautre image ou ils mettent pleins de couleur dans les yeux
 
 l'odt qui fait une erruer fatal... ca m'a ken impossible de récup le fichier ca me tuue et jfais toujours la meme technique... ptetre qui faudrait la changer... merde j'ai appelé l'interim pour faire genre c batard m'ont directe rappelé chui deg jsp que l'autre me rappel...
 
