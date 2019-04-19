@@ -8,7 +8,7 @@ def refond_test_image(image, nom):
     image = cv2.imread(image)
     for x in range(image.shape[0]):
         for y in range(image.shape[1]):
-            image[x,y] = 0,0,255
+            image[x,y] = 0,0,0
             
     cv2.imwrite(nom, image)
 
@@ -81,16 +81,38 @@ def yuyu():
             try:
                 if img[x,y][0] == 0 and\
                     img[x,y][1] == 0 and\
-                    img[x,y][2] == 255 and\
-                    img[x+1,y+1][0] == 0 and\
-                    img[x+1,y+1][1] == 0 and\
-                    img[x+1,y+1][2] == 0:
-                     liste.append((x,y))
+                    img[x,y][2] == 255:
+                    if img[x,y+1][0] == 0 and\
+                     img[x,y+1][1] == 0 and\
+                     img[x,y+1][2] == 0 and\
+                     img[x,y+10][0] == 0 and\
+                     img[x,y+10][1] == 0 and\
+                     img[x,y+10][2] == 255 and\
+                     img[x,y-10][0] == 0 and\
+                     img[x,y-10][1] == 0 and\
+                     img[x,y-10][2] == 255 and\
+                     img[x+10,y][0] == 0 and\
+                     img[x+10,y][1] == 0 and\
+                     img[x+10,y][2] == 255 and\
+                     img[x-10,y][0] == 0 and\
+                     img[x-10,y][1] == 0 and\
+                     img[x-10,y][2] == 255:
+                         liste.append((x,y))
 
             except:
                 pass
 
-    print(liste)
+    
+
+    return liste
+
+
+
+def yiyi(liste):
+    
+    img = cv2.imread('zazazazaz.png')
+
+
 
 
     for i in liste:
@@ -103,19 +125,7 @@ def yuyu():
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    cv2.imwrite('zazazazaz.png', img)
 
 
 
@@ -135,9 +145,10 @@ def yuyu():
 ##refond_test_image('zaeeee.png', 'zaeeee.png')
 ##
 ##yoyo()
+refond_test_image('zazazazaz.png', 'zazazazaz.png')
 yaya()
-yuyu()
-
+a = yuyu()
+yiyi(a)
 
 
 
