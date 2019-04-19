@@ -108,12 +108,29 @@ def yuyu():
 
 
 
+
+def yy(image):
+
+    im_base = Image.open(image)
+
+    a = im_base.width
+    b = im_base.height
+
+    print(a,b)
+
+    im = Image.open('zazazazaz.png')
+    im = im.resize((a,b), Image.ANTIALIAS)
+    im.save('zazazazaz.png')
+
+    
+
+
+
+
+
 def yiyi(liste):
     
     img = cv2.imread('zazazazaz.png')
-
-
-
 
     for i in liste:
         img[i[0],i[1]] = 255,255,255
@@ -126,17 +143,13 @@ def yiyi(liste):
     cv2.destroyAllWindows()
 
     cv2.imwrite('zazazazaz.png', img)
+    print('fin')
+def superposition(image):
 
-
-
-
-
-
-
-
-
-
-
+    p1 = Image.open(image)
+    p2 = Image.open('zazazazaz.png')
+    p3 = Image.blend(p1, p2, .8)
+    p3.save('super.jpg')
 
 
 #'eazeaze.png'
@@ -148,8 +161,9 @@ def yiyi(liste):
 refond_test_image('zazazazaz.png', 'zazazazaz.png')
 yaya()
 a = yuyu()
+yy('pikachu2.jpg')
 yiyi(a)
-
+superposition('pikachu2.jpg')
 
 
 
