@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from PIL import Image
 import shutil
-
+""
 
 def refond_test_image(image, nom):
     image = cv2.imread(image)
