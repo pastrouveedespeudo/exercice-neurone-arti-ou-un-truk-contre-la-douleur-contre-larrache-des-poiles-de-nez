@@ -1,17 +1,14 @@
-redimensionne l'image avec pil au meme dimension que l'image principale
+redimensionne l'image avec pil au meme dimension que l'image principale ok la on pourrait faire un haarcascade mais c hyper chiant du coup on dit si tu trouve au moins 5 ronds et que les pts blanc son disposé dans la meme régions de +15 - 15 pix alors c les yeux de pika jmarrete la 
+on fait le truk d'en bas
 
-superpose les
++
 
-verifie que tes pts == blanc et que si autour c du noir alors c les yeux, ya dautre image ou ils mettent pleins de couleur dans les yeux
-
-l'odt qui fait une erruer fatal... ca m'a ken impossible de récup le fichier ca me tuue et jfais toujours la meme technique... ptetre qui faudrait la changer... merde j'ai appelé l'interim pour faire genre c batard m'ont directe rappelé chui deg jsp que l'autre me rappel...
+on prend dautre poké, on met leur nom et le truk prend le titre de l'image on supp les int et on dit des truk généraux il semble que pour evolie la couleur principal est blanc la deuxieme est marron des truk comme ca quoi
 
 
-corps pika
 
-boule rouge par contre avec un carre ca fait un gros carré mais le truk detecte quand meme un rond...
 
-les yeux mtn noir et blanc dedans
+
 
 
 j'ai compris pour les reseau neurono, jvais faire ca avec pikachu ou pas pikachu facile pcque il a des truk rouges sur les joues, en gros faut juste que ca dise pika ou pas pika c tout et les plus dur tous les truks
