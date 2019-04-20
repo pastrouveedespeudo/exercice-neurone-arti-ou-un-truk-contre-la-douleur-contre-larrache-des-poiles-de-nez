@@ -1,3 +1,5 @@
+j'ai toute la vie pour apprendre a faire des truk mieux a faire mes prpores detection de carre ou de rond donc oui travailler en noir et blanc c mieux ou alors faire le truk de la mode et référencer toutes les couleurs... 
+
 redimensionne l'image avec pil au meme dimension que l'image principale ok la on pourrait faire un haarcascade mais c hyper chiant du coup on dit si tu trouve au moins 5 ronds et que les pts blanc son disposé dans la meme régions de +15 - 15 pix alors c les yeux de pika jmarrete la 
 on fait le truk d'en bas
 
