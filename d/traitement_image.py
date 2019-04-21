@@ -1,54 +1,51 @@
 import cv2
 import numpy as np
 
-class traitement_caracteristique:
 
-    def reconnaissance_corps_pikachu(self, image):
-        self.image = image
-        image = cv2.imread(self.image)
+def corps_pikachu(image):
 
-        resultat_corps = []
+    img = cv2.imread(image)
 
-        print(self.image)
+    resultat_corps = []
+    yo = []
+    compteur_couleur_jaune = 0
+    
+    for x in range(img.shape[0]):
+        for y in range(img.shape[1]):
+            if img[x,y][0] <= 85 and\
+               img[x,y][1] >= 160 and\
+               img[x,y][2] >= 150:
+                compteur_couleur_jaune += 1
+                yo.append((x,y))
 
-        compteur_couleur_jaune = 0
-        
-        for x in range(image.shape[0]):
-            for y in range(image.shape[1]):
-                if image[x,y][0] <= 85 and\
-                   image[x,y][1] >= 160 and\
-                   image[x,y][2] >= 150:
-                    compteur_couleur_jaune += 1
-
-        resultat_corps.append((self.image, compteur_couleur_jaune))
-        print(resultat_corps)
-
-        return resultat_corps
+    resultat_corps.append((image, compteur_couleur_jaune))
 
 
-    def reconnaissance_rond(self, image):
-        self.image = image
-        image = cv2.imread(self.image)
-        
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        cimg = cv2.medianBlur(gray, 5)
+    for i in yo:
+        img[i[0],i[1]] = 0,0,255
+    
 
-        circles = cv2.HoughCircles(cimg, cv2.HOUGH_GRADIENT, 2, 100, param1=50,
-                                    param2=30, minRadius=40, maxRadius=55)
+    return resultat_corps
 
-        circles = np.round(circles[0, :]).astype("int")
 
-        for (x, y, r) in circles:
-                cv2.circle(image, (x, y), r, (0, 255, 0), 2)
-                cv2.circle(image, (x, y), 2, (0, 0, 255), 3)
 
-        cv2.imshow("output transform", image)
-        cv2.waitKey(0)
-        cv2.putText(image, shape, (cX, cY), cv2.FONT_HERSHEY_SIMPLEX,0.5, (255, 255, 255), 2)
+def traitement(image, liste):
+
+    img = cv2.imread(image)
+
+    a = img.shape[1]
+    b = img.shape[0]
+    c = a * b
+
+    pourcentage = 100*int(liste) / c
+
+    return pourcentage
 
 
 
 
+if __name__ == "__main__":
 
-
+    liste1 = corps_pikachu('Pikachu2.jpg')
+    traitement(liste1[0][0], liste1[0][1])
 
