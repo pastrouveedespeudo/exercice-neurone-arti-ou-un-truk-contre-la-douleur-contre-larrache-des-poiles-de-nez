@@ -121,9 +121,6 @@ def yiyi(liste):
     for i in liste:
         img[i[0],i[1]] = 255,255,255
 
-    cv2.imwrite('outils3.png', img)
-
-
 
 def pts_autour_yeux(image, liste):
 
@@ -202,13 +199,12 @@ def detection_rond(nom_image):
             # draw the center of the circle
             cv2.circle(cimg,(i[0],i[1]),2,(255,0,0),2)
 
-            
 
-        cv2.startWindowThread()
-        cv2.namedWindow("preview")
-        cv2.imshow("preview", cimg)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+##        cv2.startWindowThread()
+##        cv2.namedWindow("preview")
+##        cv2.imshow("preview", cimg)
+##        cv2.waitKey(0)
+##        cv2.destroyAllWindows()
 
         return nombre
         
@@ -228,43 +224,6 @@ def suppression(path):
 
 
 
-if __name__ == "__main__":
-    
-    nettoyage_image_outils('outils1.png', 'outils1.png', 0,0,255)
-    nettoyage_image_outils('outils2.png', 'outils2.png', 0,0,0)
-    nettoyage_image_outils('outils3.png', 'outils3.png', 0,0,0)
-
-
-    yoyo('pikachu2.jpg')
-    yaya()
-    liste1 = yuyu()
-    yy('pikachu2.jpg')
-    yiyi(liste1)
-    pts_autour_yeux('pikachu2.jpg', liste1)
-
-
-    path = r"C:\Users\jeanbaptiste\Desktop\reso\d\yeux"
-    os.chdir(path)
-    liste = os.listdir()
-
-    c = 0
-    for i in liste:
-        contour(i, c)
-        c+=1
-
-
-    path = r"C:\Users\jeanbaptiste\Desktop\reso\d\yeux1"
-    os.chdir(path)
-    liste = os.listdir()
-
-    nb_cercle = 0
-    for i in liste:
-        cercle = detection_rond(i)
-        nb_cercle += cercle
-
-    print(nb_cercle)
-    
-    suppression(r"C:\Users\jeanbaptiste\Desktop\reso\d\yeux1")
 
 
 
