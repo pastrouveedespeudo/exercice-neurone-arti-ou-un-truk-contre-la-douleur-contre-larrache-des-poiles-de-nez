@@ -193,14 +193,63 @@ def pts_autour_yeux(image, liste):
 
 
 
-def detection_yeux():
-    pass
+def contour(image):
+    raw_image = cv2.imread(image)
+    bilateral_filtered_image = cv2.bilateralFilter(raw_image, 5, 175, 175)
+    edge_detected_image = cv2.Canny(bilateral_filtered_image, 75, 200)
+    _, contours, hierarchy = cv2.findContours(edge_detected_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-def suppression_yeux():
-    pass
+    contour_list = []
+    for contour in contours:
+        approx = cv2.approxPolyDP(contour,0.01*cv2.arcLength(contour,True),True)
+        area = cv2.contourArea(contour)
+        if ((len(approx) > 8) & (len(approx) < 23) & (area > 30) ):
+            contour_list.append(contour)
+
+    cv2.drawContours(raw_image, contour_list,  -1, (0,0,255), 1)
+
+
+    cv2.startWindowThread()
+    cv2.namedWindow("preview")
+    cv2.imshow("preview", raw_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    cv2.imwrite("yo.png", raw_image)
+ 
+        
 
 
 
+
+def detection_rond(nom_image):
+
+    img = cv2.imread(nom_image,0)
+    img = cv2.medianBlur(img,5)
+    cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
+
+    circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,80,
+                            param1=50,param2=20,minRadius=0,maxRadius=0)
+
+    circles = np.uint16(np.around(circles))
+
+    nombre = 0
+    for i in circles:
+        for j in i:
+            nombre += 1
+            
+    for i in circles[0,:]:
+        # draw the outer circle
+        cv2.circle(cimg,(i[0],i[1]),i[2],(0,255,0),2)
+        # draw the center of the circle
+        cv2.circle(cimg,(i[0],i[1]),2,(255,0,0),1)
+
+        
+
+    cv2.startWindowThread()
+    cv2.namedWindow("preview")
+    cv2.imshow("preview", cimg)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 
 
@@ -218,5 +267,7 @@ yy('pikachu2.jpg')
 yiyi(a)
 superposition('pikachu2.jpg')
 pts_autour_yeux('pikachu2.jpg', a)
+contour('crop9.png') 
+detection_rond('yo.png')
 
 
