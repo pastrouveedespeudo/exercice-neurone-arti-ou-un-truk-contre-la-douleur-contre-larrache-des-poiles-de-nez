@@ -1,4 +1,4 @@
-detection rond/elipse -> faire la meme chose pour l'autre axe pcqu'imagine comme par hasars les deux pts de x sont éffacé ou l'un est éffacer? enfete faut faire ca pour tous les traits et trouver son trait opposé 
+detection rond/elipse -> faire la meme chose pour l'autre axe pcqu'imagine comme par hasard les deux pts de x sont éffacés ou l'un est éffacé? enfete faut faire ca pour tous les traits et trouver son trait opposé aie
 
 
 
