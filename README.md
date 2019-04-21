@@ -1,9 +1,5 @@
-j'ai toute la vie pour apprendre a faire des truk mieux a faire mes prpores detection de carre ou de rond donc oui travailler en noir et blanc c mieux ou alors faire le truk de la mode et référencer toutes les couleurs... 
 
-redimensionne l'image avec pil au meme dimension que l'image principale ok la on pourrait faire un haarcascade mais c hyper chiant du coup on dit si tu trouve au moins 5 ronds et que les pts blanc son disposé dans la meme régions de +15 - 15 pix alors c les yeux de pika jmarrete la 
-on fait le truk d'en bas
-
-+
+tout refaire et faire le truk d'en bas
 
 on prend dautre poké, on met leur nom et le truk prend le titre de l'image on supp les int et on dit des truk généraux il semble que pour evolie la couleur principal est blanc la deuxieme est marron des truk comme ca quoi
 
