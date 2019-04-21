@@ -6,7 +6,7 @@ le truk rouge faut refaire les ronds
 
 on prend dautre poké, on met leur nom et le truk prend le titre de l'image on supp les int et on dit des truk généraux il semble que pour evolie la couleur principal est blanc la deuxieme est marron des truk comme ca quoi
 
-
+ca existe pas les calcul matriciel et le périmetre d'un rond alors numpy c pour plus tard... on s'est jamais
 
 
 
