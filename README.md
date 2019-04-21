@@ -1,12 +1,8 @@
-bon ta technique de rond marche que poru la premiere.... faut se servir de numpy
+detection rond/elipse
 
-c horrible ca fait un enorme rond et ca match pas putin 
+dans les yeux ca prend pas tout le rond blanc
 
-
-jcommence a gérer l'ecriture !!!! 
-
-
-tout refaire et faire le truk d'en bas
+le truk rouge faut refaire les ronds
 
 on prend dautre poké, on met leur nom et le truk prend le titre de l'image on supp les int et on dit des truk généraux il semble que pour evolie la couleur principal est blanc la deuxieme est marron des truk comme ca quoi
 
