@@ -1,4 +1,6 @@
-le but de cet algo est de détéecter les pickachu a travers 3 poids: les yeux, la couleur du corps et les ronds rouges de pikachu. A la suite de l'entrainement nous définiront certaines fonctions qui pourront détecter les caractéristiques d'autres pokémons par le nom de l'image. Ensuite nous essaieront de réduire la probabilité de reconnaissance d'un pikachu et d'entrainer notre réseau à reconnaitre au fur et a mesure d'autres pokémons sans le titre.
+bon ta technique de rond marche que poru la premiere.... faut se servir de numpy
+
+c horrible ca fait un enorme rond et ca match pas putin 
 
 
 jcommence a gérer l'ecriture !!!! 
