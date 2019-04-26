@@ -1,27 +1,9 @@
-detection rond/elipse -> faire la meme chose pour l'autre axe pcqu'imagine comme par hasard les deux pts de x sont éffacés ou l'un est éffacé? enfete faut faire ca pour tous les traits et trouver son trait opposé aie
+https://openclassrooms.com/fr/courses/1399541-interface-graphique-pygame-pour-python/1400238-tp-dk-labyrinthe
 
+#putin j'ai effacer mon truk, faut que je le recupere pour la saoutenance
 
+#en gros on score les cases et s'il va sur une case -1 on recommence
 
+#et on marque la case
 
-dans les yeux ca prend pas tout le rond blanc
-
-le truk rouge faut refaire les ronds
-
-on prend dautre poké, on met leur nom et le truk prend le titre de l'image on supp les int et on dit des truk généraux il semble que pour evolie la couleur principal est blanc la deuxieme est marron des truk comme ca quoi
-
-ca existe pas les calcul matriciel et le périmetre d'un rond alors numpy c pour plus tard... on s'est jamais
-
-
-
-
-
-j'ai compris pour les reseau neurono, jvais faire ca avec pikachu ou pas pikachu facile pcque il a des truk rouges sur les joues, en gros faut juste que ca dise pika ou pas pika c tout et les plus dur tous les truks
-
-
-avant doublié en gros, on prend l'image on la reduit, on prend des caracteristique genre est ce qu'il y a 2 rond rouge, son nez, ses yeux  son corps jaune , on lui presente plein dimage on regarde si ya les carac, on prend le titre, si y'a ecrit pikachu alors onregarde yavait til ces carac ? si oui + 0.1. A la fin on regarde le tableau le nombre pikachu le nombre de +0.1 on additionne selon le nombre.
-
-et on presente de nouvelle image et par exemple y'a 2 pts rond rouge == 1 et son museau == 0.2 et son corps jaune == 1 alors c un pika et hier nuit j'ai vla pensé ben nan y'a aucun autre pokémon qui a ca donc facile et pour la pos prend chaque pts du corps et faire la division pour le placement g,d,h,b mais ca c hyper dur
-
-raichu psychokawk... ouais pendant les 40 telechargement de postgresql j'ai regarder des video youtube qui m'ont mené chai pas comment a dautre video youtube du genre les 15 pouvoir supreme des pokemons...
-
-ok la le but c le reso alors la semaine pro je ferai un truk sur les rond mais la jai pas le temps que les couleurs
+#on lui laisse le choix avec un random s'il va sur une des cas ou il est aller alors on interdit le move maiiiis j'ai rien compris jcrois be ndans marios c pareil le truk crever mais comment comment le truk se met a sauter et a defoncer tous les mecs ?
