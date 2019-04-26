@@ -4,11 +4,13 @@ https://openclassrooms.com/fr/courses/1399541-interface-graphique-pygame-pour-py
 
 #moi aussi je veux regarde mon mario pendant 8heures s'entrainer...
 
+pk mes tab == 8 espaces mtn c mort j'utilise pas espace 4 fois espaces compter 4 fois espaces ca deconcentre
+
 1 - effacer l'interdiction de mur ok
 
-2 - faire déplacer le mec tout seul
+2 - faire déplacer le mec tout seul ok  
 
-4 - faire sa database
+4 - faire sa database ok 
 
 3 - faire un fonction décriture ou de mis en database
 
