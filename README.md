@@ -1,22 +1,12 @@
 https://openclassrooms.com/fr/courses/1399541-interface-graphique-pygame-pour-python/1400238-tp-dk-labyrinthe
 
-putin il est coincé dans un toru le con
+#ouvrir le fichier requete1.py
 
-#moi aussi je veux regarde mon mario pendant 8heures s'entrainer...
+mettre le importlib.reload()
 
-pk mes tab == 8 espaces mtn c mort j'utilise pas espace 4 fois espaces compter 4 fois espaces ca deconcentre
+#récupérer a
 
-1 - effacer l'interdiction de mur ok
+#si la liste qu'on vient de récup est plus petite on la stock et faudra des millions d'heure pour avoir le truk juste alors que mario lui apprenait en jouant
 
-2 - faire déplacer le mec tout seul ok  
-
-4 - faire sa database ok 
-
-3 - faire un fonction décriture ou de mis en database
-
-6 - donner des nom a la grille
-
-5 - marquer la grille
-
-#putin j'ai effacer mon truk, faut que je le recupere pour la saoutenance
+#faut récupérer les cases et les marquer et si le choix est en haut et qu'il y a un x alors  rechoice un des 3 ainsi de suite + le truk d'en haut et s'il se coince alors on peut revenir sur les 0 et les o sont les truks ou il peut aller
 
