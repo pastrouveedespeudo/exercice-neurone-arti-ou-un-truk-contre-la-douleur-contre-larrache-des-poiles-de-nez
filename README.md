@@ -1,6 +1,6 @@
 https://openclassrooms.com/fr/courses/1399541-interface-graphique-pygame-pour-python/1400238-tp-dk-labyrinthe
 
-
+putin il est coincé dans un toru le con
 
 #moi aussi je veux regarde mon mario pendant 8heures s'entrainer...
 
