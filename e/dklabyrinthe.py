@@ -11,9 +11,50 @@ Fichiers : dklabyrinthe.py, classes.py, constantes.py, n1, n2 + images
 
 import pygame
 from pygame.locals import *
-
+import mysql.connector
 from classes import *
 from constantes import *
+from databasedk import *
+from databasedk import visualisation
+import random
+import os
+
+
+def écriture(fichier):
+        with open(fichier, 'w') as file:
+                file.write('a = ')
+                file.write(str(fichier))
+
+def fichier():
+        liste2 = []
+        liste = os.listdir()
+        for i in liste:
+                if i == 'classes.py'\
+                   or i == 'config.py'\
+                   or i == 'constantes.py'\
+                   or i == 'database.py'\
+                   or i == 'databasedk.py'\
+                   or i == 'dklabyrinthe.py'\
+                   or i == 'essais.py'\
+                   or i == 'images'\
+                   or i == 'n1'\
+                   or i == 'n2'\
+                   or i == '__pycache__':
+                        pass
+                else:
+                        liste2.append(i)
+
+        nb = liste2[-1][-4]
+        nb = int(nb)
+        nouvau_nb = nb + 1
+        nouveau_file = 'requete' + str(nouvau_nb) + '.py'
+        print(nouveau_file)
+        return nouveau_file
+
+LISTE  = []
+
+
+
 
 pygame.init()
 
@@ -26,6 +67,7 @@ pygame.display.set_icon(icone)
 pygame.display.set_caption(titre_fenetre)
 
 
+FILE = fichier()
 #BOUCLE PRINCIPALE
 continuer = 1
 while continuer:	
@@ -99,20 +141,23 @@ while continuer:
 				continuer_jeu = 0
 				continuer = 0
 		
-			elif event.type == KEYDOWN:
-				#Si l'utilisateur presse Echap ici, on revient seulement au menu
-				if event.key == K_ESCAPE:
-					continuer_jeu = 0
-					
-				#Touches de déplacement de Donkey Kong
-				elif event.key == K_RIGHT:
-					dk.deplacer('droite')
-				elif event.key == K_LEFT:
-					dk.deplacer('gauche')
-				elif event.key == K_UP:
-					dk.deplacer('haut')
-				elif event.key == K_DOWN:
-					dk.deplacer('bas')			
+
+		liste = ['right', 'left', 'top', 'bot']
+		choix = random.choice(liste)
+
+				
+		if choix == 'right':
+			dk.deplacer('droite')
+			LISTE.append(choix)
+		elif choix == 'left':
+			dk.deplacer('gauche')
+			LISTE.append(choix)
+		elif choix == 'top':
+			dk.deplacer('haut')
+			LISTE.append(choix)
+		elif choix == 'bot':
+			dk.deplacer('bas')
+			LISTE.append(choix)
 			
 		#Affichages aux nouvelles positions
 		fenetre.blit(fond, (0,0))
@@ -123,3 +168,76 @@ while continuer:
 		#Victoire -> Retour à l'accueil
 		if niveau.structure[dk.case_y][dk.case_x] == 'a':
 			continuer_jeu = 0
+			print(LISTE)
+			écriture(str(LISTE))
+
+
+
+
+
+
+def longueur():
+        liste = os.listdir()
+        liste2 = []
+        for i in liste:
+                if i == 'classes.py'\
+                   or i == 'config.py'\
+                   or i == 'constantes.py'\
+                   or i == 'database.py'\
+                   or i == 'databasedk.py'\
+                   or i == 'dklabyrinthe.py'\
+                   or i == 'essais.py'\
+                   or i == 'images'\
+                   or i == 'n1'\
+                   or i == 'n2'\
+                   or i == '__pycache__':
+                        pass
+                else:
+                        with open(i, r) as file:
+                                liste2.append(file.read)
+        #on enleve les '' et le a =
+        #on split
+        #on fait un len
+        #on compare le min(liste2)
+        #on récupère les info on fait un input "entrainement" ou pas
+        #si pas alors on lui fait faire for i in liste2;
+                                #fait ca
+
+			
+def déplacement():
+        pass
+        #genere le plus petit déplacement
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
