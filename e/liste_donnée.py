@@ -1,1 +1,1 @@
-[(1, "['bas', 'droite', 'haut', 'bas', 'droite']")]
+[(1, "['droite', 'droite', 'bas', 'droite', 'droite']")]
