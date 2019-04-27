@@ -14,7 +14,7 @@ class create_base:
 
         self.cursor = self.connexion.cursor()
         
-        self.cursor.execute("""CREATE DATABASE dkdk""")
+        self.cursor.execute("""CREATE DATABASE dkdk1""")
         self.connexion.commit()
 
 class connexion_database:
@@ -25,7 +25,7 @@ class connexion_database:
                                                  password=PASSWORD)
         self.cursor = self.connexion.cursor()
 
-        self.cursor.execute("""use dkdk""")
+        self.cursor.execute("""use dkdk1""")
         self.connexion.commit()
 
 
@@ -34,7 +34,7 @@ class table:
         connexion_database.connexion(self)
         self.cursor.execute("""create table move(
                             id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-                            move varchar(100),
+                            move TEXT,
                             PRIMARY KEY(id) )
                             ENGINE=InnoDB;
                             
@@ -59,17 +59,13 @@ class insertion_table:
         self.connexion.commit()
 
 
-    def insertion_climat(self, climat, saison, date, heure_donnée, ville):
+    def insertion_climat(self, para):
         connexion_database.connexion(self)
-        
-        sql = ("""UPDATE ville
-                   SET climat=%s, saison=%s
-                   WHERE (date = %s AND heure_donnée = %s AND nom_ville = %s);""")
 
-        values = (climat, saison, date, heure_donnée, ville)
+        self.cursor.execute("""UPDATE move
+                            SET move=%s;""", (para,))
 
-        
-        self.cursor.execute(sql, values)
+
         self.connexion.commit()
 
 
