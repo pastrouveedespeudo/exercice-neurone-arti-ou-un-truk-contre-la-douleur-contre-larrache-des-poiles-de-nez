@@ -1,5 +1,7 @@
 https://openclassrooms.com/fr/courses/1399541-interface-graphique-pygame-pour-python/1400238-tp-dk-labyrinthe
 
+#en vrai je sais pas comment j'ai fais ce machin c trop dur !!!! mettre les lignes 15/15 ne marche pas horrible compter de tout petit truk en mettre 16 sur une ligne tout recompter 10 fois pffff
+
 #ouvrir le fichier requete1.py
 
 mettre le importlib.reload()
