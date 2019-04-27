@@ -3,6 +3,7 @@
 import pygame
 from pygame.locals import * 
 from constantes import *
+from database import *
 
 class Niveau:
     """Classe permettant de créer un niveau"""
@@ -30,7 +31,7 @@ class Niveau:
                 structure_niveau.append(ligne_niveau)
             #On sauvegarde cette structure
             self.structure = structure_niveau
-    
+
     
     def afficher(self, fenetre):
         """Méthode permettant d'afficher le niveau en fonction 
@@ -59,7 +60,7 @@ class Niveau:
             num_ligne += 1
                     
                     
-                    
+    
                     
 class Perso:
     """Classe permettant de créer un personnage"""
@@ -88,72 +89,122 @@ class Perso:
 
         b = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
 
+        MOVE = []
+
         if int(self.x)/30 == 0 and  int(self.y)/30 == 0:
             pass
 
+        #si un 0 entouré de M ou de bordure
+        #alors le 0 deviens un M
 
+
+        mokouaille = ''
+        
         if direction == 'droite':
 
             if self.case_x < (nombre_sprite_cote - 1):
-                if self.niveau.structure[self.case_y][self.case_x+1] != 'm'\
-                   and self.niveau.structure[self.case_y][self.case_x+1] != 'M':
-                                
-                    self.case_x += 1
-                    LISTE.append((self.x, self.y))
-            
-                    self.x = self.case_x * taille_sprite
-                    if self.niveau.structure[self.case_y][self.case_x+1] == 'm':
+                
+                try:
+                    if self.niveau.structure[self.case_y][self.case_x+1] == '0' and\
+                       self.niveau.structure[self.case_y][self.case_x+2] == 'M' and\
+                       self.niveau.structure[self.case_y-1][self.case_x+1] == 'M' and\
+                       self.niveau.structure[self.case_y+1][self.case_x+1] == 'M':
+  
                         
-                        print('mtn', int(self.x)/30, int(self.y)/30)
-                        print('d')
-                        x = int(self.x / 30)
-                        y = int(self.y / 30)
-                        
-                        #ouverture
-                        with open('n1','r') as file:
-                            a = file.read()
-                            filee.append(a)
-                        #print(filee)
-                        filee = " ".join(filee)
-                        #recup par grille
-                        c = 0
-                        for i in filee:
-                            if i == "\n":
-                                c+=1
+                        mokouaille = True
 
-                            else:
-                                b[c].append(i)
-                        #print(b[x+1][y])
-                        b[y][x+1] = 'M'
-                        
-                       
-                        c = []
+                    if self.niveau.structure[self.case_y][self.case_x+1] == 's':
+                        print('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
+                        a = visualisation_table.visualisation(self)
 
-                        for i in b:
-                            i = "".join(i)
-                            c.append(i)
+        
+                        self.case_x += 1
+                        return len(a), 's'
 
-                        c = "\n".join(c)
-                        #print(c)
-                        
-                        with open('n1','w') as file:
-                            file.write(str(c))
+
+                    
+                    if self.niveau.structure[self.case_y][self.case_x+1] != 'm'\
+                       and self.niveau.structure[self.case_y][self.case_x+1] != 'M' and\
+                       mokouaille != True:
+                        if mokouaille == True:
+                            pass
+                        self.case_x += 1
+
+                        LISTE.append((self.x, self.y))
+                
+                        self.x = self.case_x * taille_sprite
+                        if self.niveau.structure[self.case_y][self.case_x+1] == 'm':
+                            
+ 
+           
+                            x = int(self.x / 30)
+                            y = int(self.y / 30)
+                            
+                            #ouverture
+                            with open('n1','r') as file:
+                                a = file.read()
+                                filee.append(a)
+                            #print(filee)
+                            filee = " ".join(filee)
+                            #recup par grille
+                            c = 0
+                            for i in filee:
+                                if i == "\n":
+                                    c+=1
+
+                                else:
+                                    b[c].append(i)
+                            #print(b[x+1][y])
+                            b[y][x+1] = 'M'
+                            
                            
-                        return 'STOP'
-                    
-                elif self.niveau.structure[self.case_y][self.case_x+1] == 'M':
-                     return 'M'
-                    
-                #Image dans la bonne direction
-                self.direction = self.droite
-                return LISTE
+                            c = []
 
-            else:
-                pass
+                            for i in b:
+                                i = "".join(i)
+                                c.append(i)
+
+                            c = "\n".join(c)
+                            #print(c)
+                            
+                            with open('n1','w') as file:
+                                file.write(str(c))
+                               
+                            return 'STOP'
+                        
+                    elif self.niveau.structure[self.case_y][self.case_x+1] == 'M':
+                         return 'M'
+                        
+                    #Image dans la bonne direction
+                    self.direction = self.droite
+                    return LISTE
+
+
+                except:
+                    pass
+
+
+
 
         #Déplacement vers la gauche
         if direction == 'gauche':
             if self.case_x > 0:
+
+                 if self.niveau.structure[self.case_y][self.case_x-1] == 's':
+    
+                     a = visualisation_table.visualisation(self)
+
+                     self.case_x -= 1
+                     print('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
+              
+                     return len(a), 's'
+    
+                 if self.niveau.structure[self.case_y][self.case_x-1] != '0' and\
+                   self.niveau.structure[self.case_y][self.case_x-2] != 'M' and\
+                   self.niveau.structure[self.case_y-1][self.case_x-1] != 'M' and\
+                   self.niveau.structure[self.case_y+1][self.case_x-1] != 'M':
+                    self.case_x -= 1
+                    
                  if self.niveau.structure[self.case_y][self.case_x-1] != 'm'\
                     and self.niveau.structure[self.case_y][self.case_x-1] != 'M':
                     self.case_x -= 1
@@ -161,8 +212,7 @@ class Perso:
                     self.x = self.case_x * taille_sprite
                     if self.niveau.structure[self.case_y][self.case_x-1] == 'm':
                         
-                        print('mtn', int(self.x)/30, int(self.y)/30)
-                        print('g')
+
                         x = int(self.x / 30)
                         y = int(self.y / 30)
                         
@@ -207,10 +257,28 @@ class Perso:
             else:
                 pass
 
+
+
+
+
         #Déplacement vers le haut
         if direction == 'haut':
             if self.case_y > 0:
+                if self.niveau.structure[self.case_y-1][self.case_x] == 's':
+   
+                    a = visualisation_table.visualisation(self)
 
+                    self.case_y -= 1
+                    print('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
+           
+                    return len(a), 's'
+                        
+                if self.niveau.structure[self.case_y-1][self.case_x] != '0' and\
+                   self.niveau.structure[self.case_y-2][self.case_x] != 'M' and\
+                   self.niveau.structure[self.case_y-1][self.case_x-1] != 'M' and\
+                   self.niveau.structure[self.case_y-1][self.case_x+1] != 'M':
+                    self.case_y -= 1
+                    
                 if self.niveau.structure[self.case_y-1][self.case_x] != 'm'\
                    and self.niveau.structure[self.case_y-1][self.case_x] != 'M':
                     self.case_y -= 1
@@ -218,8 +286,7 @@ class Perso:
                     self.y = self.case_y * taille_sprite
                     if self.niveau.structure[self.case_y-1][self.case_x] == 'm':
                       
-                        print('mtn', int(self.x)/30, int(self.y)/30)
-                        print('h')
+ 
                         x = int(self.x / 30)
                         y = int(self.y / 30)
                         
@@ -251,7 +318,7 @@ class Perso:
                             c.append(i)
 
                         c = "\n".join(c)
-                        print(c)
+    
                         with open('n1','w') as file:
                             file.write(str(c))
 
@@ -266,66 +333,96 @@ class Perso:
                 return LISTE
             else:
                 pass
-        
+
+
+
+
+
+
+        mokouaille = ''
         #Déplacement vers le bas
         if direction == 'bas':
             if self.case_y < (nombre_sprite_cote - 1):
-                if self.niveau.structure[self.case_y+1][self.case_x] != 'm'\
-                   and self.niveau.structure[self.case_y+1][self.case_x] != 'M':
-                    self.case_y += 1
-                    LISTE.append((self.x, self.y))
-                    self.y = self.case_y * taille_sprite
-                    if self.niveau.structure[self.case_y+1][self.case_x] == 'm':
-                        
-                        print('mtn', int(self.x)/30, int(self.y)/30)
-                        print('b')
-                        x = int(self.x / 30)
-                        y = int(self.y / 30)
-                        
-                        #ouverture
-                        with open('n1','r') as file:
-                            a = file.read()
-                            filee.append(a)
 
-                        filee = " ".join(filee)
+                try:
+                    if self.niveau.structure[self.case_y + 1][self.case_x] == 's':
 
-                        
-                        #recup par grille
-                        c = 0
-                        for i in filee:
+                        a = visualisation_table.visualisation(self)
+        
+                        self.case_y += 1
+                        print('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
                    
-                            if i == "\n":
-                                c+=1
-
-                            else:
-                                b[c].append(i)
-                        print(x,y)
-                        b[y+1][x] = 'M'
+                        return len(a), 's'
                         
-                        c = []
+                        
+                    if self.niveau.structure[self.case_y + 1][self.case_x] == '0' and\
+                       self.niveau.structure[self.case_y + 2][self.case_x] == 'M' and\
+                       self.niveau.structure[self.case_y + 1][self.case_x + 1] == 'M' and\
+                       self.niveau.structure[self.case_y + 1][self.case_x - 1] == 'M':
+     
+                        mokouaille = True
 
-                        for i in b:
-                            i = "".join(i)
-                            c.append(i)
 
-                        c = "\n".join(c)
-                        print(c)
-                        with open('n1','w') as file:
-                            file.write(str(c))
+
+
+                    if self.niveau.structure[self.case_y+1][self.case_x] != 'm'\
+                       and self.niveau.structure[self.case_y+1][self.case_x] != 'M' and\
+                       mokouaille != True:
+                        if mokouaille == True:
+                            pass
+                        self.case_y += 1
+                        LISTE.append((self.x, self.y))
+                        self.y = self.case_y * taille_sprite
+                        if self.niveau.structure[self.case_y+1][self.case_x] == 'm':
                             
-                        return 'STOP'
-                    
-                elif self.niveau.structure[self.case_y+1][self.case_x] == 'M':
-                    return 'M'
 
-                    
-                self.direction = self.bas
-                return LISTE
-            else:
-                pass
+                            x = int(self.x / 30)
+                            y = int(self.y / 30)
+                            
+                            #ouverture
+                            with open('n1','r') as file:
+                                a = file.read()
+                                filee.append(a)
+
+                            filee = " ".join(filee)
+
+                            
+                            #recup par grille
+                            c = 0
+                            for i in filee:
+                       
+                                if i == "\n":
+                                    c+=1
+
+                                else:
+                                    b[c].append(i)
+         
+                            b[y+1][x] = 'M'
+                     
+                            c = []
+
+                            for i in b:
+                                i = "".join(i)
+                                c.append(i)
+
+                            c = "\n".join(c)
+        
+                            with open('n1','w') as file:
+                                file.write(str(c))
+                                
+                            return 'STOP'
+                        
+                    elif self.niveau.structure[self.case_y+1][self.case_x] == 'M':
+                        return 'M'
+
+                        
+                    self.direction = self.bas
+                    return LISTE
+                
 
         
-
+                except:
+                    pass
 
 
 
