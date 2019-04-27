@@ -116,10 +116,12 @@ class Perso:
                     if self.niveau.structure[self.case_y][self.case_x+1] == 's':
                         print('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
                         a = visualisation_table.visualisation(self)
-
+                        a = str(a)
+                        a = a.split()
+                 
         
                         self.case_x += 1
-                        return len(a), 's'
+                        return len(a),'s'
 
 
                     
@@ -196,8 +198,9 @@ class Perso:
 
                      self.case_x -= 1
                      print('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
-              
-                     return len(a), 's'
+                     a = str(a)
+                     a = a.split()
+                     return len(a),'s'
     
                  if self.niveau.structure[self.case_y][self.case_x-1] != '0' and\
                    self.niveau.structure[self.case_y][self.case_x-2] != 'M' and\
@@ -270,7 +273,9 @@ class Perso:
 
                     self.case_y -= 1
                     print('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
-           
+  
+                    a = str(a)
+                    a = a.split()
                     return len(a), 's'
                         
                 if self.niveau.structure[self.case_y-1][self.case_x] != '0' and\
@@ -351,7 +356,9 @@ class Perso:
         
                         self.case_y += 1
                         print('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
-                   
+  
+                        a = str(a)
+                        a = a.split()
                         return len(a), 's'
                         
                         
