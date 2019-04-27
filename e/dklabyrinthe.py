@@ -17,6 +17,8 @@ from constantes import *
 from database import *
 import random
 import os
+import requete0
+import importlib
 
 
 def écriture(fichier, liste):
@@ -57,7 +59,7 @@ LISTE_CASE = []
 class main:
     def main(self):
         pygame.init()
-
+        print(requete0.REQUETE0)
         #Ouverture de la fenêtre Pygame (carré : largeur = hauteur)
         fenetre = pygame.display.set_mode((cote_fenetre, cote_fenetre))
         #Icone
@@ -146,6 +148,47 @@ class main:
                 choix = random.choice(liste)
 
 
+                if requete0.REQUETE0 == 5:
+                  
+                    a = visualisation_table.visualisation(self)
+                    a = str(a)
+                    a = a[7:-4]
+                    
+                    listeeee = []
+                    for i in a:
+
+                        if i == "'" or i == ",":
+                            pass
+                        else:
+                            listeeee.append(i)
+                    
+                    listeeee = "".join(listeeee)
+                    listeeee = listeeee.split()
+    
+                 
+                    print(len(listeeee))
+                    for i in listeeee:
+                        print(i)
+                        dep = dk.deplacer(str(i))
+
+                        with open('requete0.py', 'w') as file:
+                            file.write('REQUETE0 = ')
+                            file.write(str(requete0.REQUETE0 + 1))
+                        importlib.reload(requete0)
+                    
+                    #symbole
+
+                    #INTERDIR LE RETOUR A S
+
+                    #REECRIRE REQUETE - 1
+                    
+
+
+
+
+
+
+
                 if choix == 'right':
                     a = dk.deplacer('droite')
                     LISTE_CHOIX.append('droite')
@@ -159,6 +202,18 @@ class main:
                                 print("oui")
                                 insertion_table.insertion_climat(self, str(LISTE_CHOIX))
                                 continuer_jeu = 0
+                                
+                            elif a[0] < len(LISTE_CHOIX):
+                                continuer_jeu = 0
+                                
+                            if a[0] == len(LISTE_CHOIX):
+                                if REQUETE0 == 5:
+                                    pass
+                                else:
+                                    with open('requete0.py', 'w') as file:
+                                        file.write('REQUETE0 = ')
+                                        file.write(str(REQUETE0 + 1))
+                                    
 
                     except:
                         pass
@@ -183,11 +238,22 @@ class main:
                         if c[1] == 's':
                             print(b[0])
                             print(len(LISTE_CHOIX))
+                            
                             if b[0] >= len(LISTE_CHOIX):
                                 print("oui")
                                 insertion_table.insertion_climat(self, str(LISTE_CHOIX))
                                 continuer_jeu = 0
                                 
+                            elif a[0] < len(LISTE_CHOIX):
+                                continuer_jeu = 0
+                                
+                            if a[0] == len(LISTE_CHOIX):
+                                if REQUETE0 == 5:
+                                    pass
+                                else:
+                                    with open('requete0.py', 'w') as file:
+                                        file.write('REQUETE0 = ')
+                                        file.write(str(REQUETE0 + 1))
                     except:
                         pass
                     
@@ -211,11 +277,22 @@ class main:
                         if c[1] == 's':
                             print(c[0])
                             print(len(LISTE_CHOIX))
+                            
                             if c[0] >= len(LISTE_CHOIX):
                                 print("oui")
                                 insertion_table.insertion_climat(self, str(LISTE_CHOIX))
                                 continuer_jeu = 0
-             
+                                
+                            elif a[0] < len(LISTE_CHOIX):
+                                continuer_jeu = 0
+                                
+                            if a[0] == len(LISTE_CHOIX):
+                                if REQUETE0 == 5:
+                                    pass
+                                else:
+                                    with open('requete0.py', 'w') as file:
+                                        file.write('REQUETE0 = ')
+                                        file.write(str(REQUETE0 + 1))
                     except:
                         pass
                     
@@ -240,6 +317,17 @@ class main:
                                 print('oui')
                                 insertion_table.insertion_climat(self, str(LISTE_CHOIX))
                                 continuer_jeu = 0
+                                
+                            elif a[0] < len(LISTE_CHOIX):
+                                continuer_jeu = 0
+                                
+                            if a[0] == len(LISTE_CHOIX):
+                                if REQUETE0 == 5:
+                                    pass
+                                else:
+                                    with open('requete0.py', 'w') as file:
+                                        file.write('REQUETE0 = ')
+                                        file.write(str(REQUETE0 + 1))
                     except:
                         pass
                         
