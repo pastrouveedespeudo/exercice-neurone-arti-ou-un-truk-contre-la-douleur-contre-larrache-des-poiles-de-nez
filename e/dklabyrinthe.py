@@ -19,7 +19,7 @@ import random
 import os
 import requete0
 import importlib
-
+import time
 
 def écriture(fichier, liste):
     with open(fichier, 'w') as file:
@@ -144,12 +144,8 @@ class main:
                             continuer = 0
                 
 
-                liste = ['right', 'left', 'top', 'bot']
-                choix = random.choice(liste)
-
-
                 if requete0.REQUETE0 == 5:
-                  
+                    print("ouiiiiiiiiiiiiiii")
                     a = visualisation_table.visualisation(self)
                     a = str(a)
                     a = a[7:-4]
@@ -170,12 +166,14 @@ class main:
                     for i in listeeee:
                         print(i)
                         dep = dk.deplacer(str(i))
+                        
 
                         with open('requete0.py', 'w') as file:
                             file.write('REQUETE0 = ')
                             file.write(str(requete0.REQUETE0 + 1))
                         importlib.reload(requete0)
-                    
+
+
                     #symbole
 
                     #INTERDIR LE RETOUR A S
@@ -186,7 +184,8 @@ class main:
 
 
 
-
+                liste = ['right', 'left', 'top', 'bot']
+                choix = random.choice(liste)
 
 
                 if choix == 'right':
