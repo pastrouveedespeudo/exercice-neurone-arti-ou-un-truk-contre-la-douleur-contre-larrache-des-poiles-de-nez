@@ -1,7 +1,15 @@
 https://openclassrooms.com/fr/courses/1399541-interface-graphique-pygame-pour-python/1400238-tp-dk-labyrinthe
 
 
-#ok je mémorise mes chemins par:
+#ouasi ouais c parti en couille
 
-#si je me déplace et que je me souviens qu'il y a 3 M autour du 0 ou un O entouré de M et d'exption d'ecran et que j'ai tout visité ALORS je ne vais plus la bas
+#interdir des chemins avec des scores avec les murs nan du coup technique de la souris
+
+#tu met des pts de sauvegarde (ou gruyere) on compare la longueur des choix
+
+#si len(chaine) <= a l'autre chaine alors on ajoute on recommence
+
+#si dans une nouvelle table longueur == longueur et ca 5 fois
+
+#if visualise != 5 on recommence sinon on continue et on creer une nouvelle table avec if exists
 
