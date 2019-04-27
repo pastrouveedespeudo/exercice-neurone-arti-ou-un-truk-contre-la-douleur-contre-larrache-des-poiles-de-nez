@@ -14,7 +14,7 @@ from pygame.locals import *
 import mysql.connector
 from classes import *
 from constantes import *
-
+from database import *
 import random
 import os
 
@@ -144,60 +144,97 @@ while continuer:
         liste = ['right', 'left', 'top', 'bot']
         choix = random.choice(liste)
 
-        print(choix)
+
         if choix == 'right':
             a = dk.deplacer('droite')
-            LISTE_CHOIX.append(choix)
-            LISTE_CASE.append(a)
+            LISTE_CHOIX.append(a)
+
+            try:
+                if a[1] == 's':
+                    print(a[0])
+                    print(len(LISTE_CHOIX))
+
+            except:
+                pass
             if a == 'STOP':
                 continuer_jeu = 0
             if a == 'M':
-                print('M')
                 liste1 = ['left', 'top', 'bot']
                 choix = random.choice(liste1)
-                print(choix)
-                a = dk.deplacer(choix)
+
+                dep = dk.deplacer(choix)
+   
+                
 
 
                 
         elif choix == 'left':
             b = dk.deplacer('gauche')
-            LISTE_CHOIX.append(choix)
-            LISTE_CASE.append(b)
+            LISTE_CHOIX.append('gauche')
+
+
+            try:
+                if c[1] == 's':
+                    print(b[0])
+                    print(len(LISTE_CHOIX))
+
+            except:
+                pass
+            
             if b == 'STOP':
                 continuer_jeu = 0
             if b == 'M':
-                print('M')
                 liste1 = ['right', 'top', 'bot']
                 choix = random.choice(liste1)
-                print(choix)
-                b = dk.deplacer(choix)
-                
+         
+                dep = dk.deplacer(choix)
+      
+
+
+
+      
         elif choix == 'top':
             c = dk.deplacer('haut')
-            LISTE_CHOIX.append(choix)
-            LISTE_CASE.append(c)
+            LISTE_CHOIX.append(c)
+      
+            try:
+                if c[1] == 's':
+                    print(c[0])
+                    print(len(LISTE_CHOIX))
+
+            except:
+                pass
+            
             if c == 'STOP':
                 continuer_jeu = 0
             if c == 'M':
-               print('M')
                liste1 = ['right','left', 'bot']
                choix = random.choice(liste1)
-               print(choix)
-               c = dk.deplacer(choix)
+
+               dep = dk.deplacer(choix)
+      
                
         elif choix == 'bot':
             d = dk.deplacer('bas')
-            LISTE_CHOIX.append(choix)
-            LISTE_CASE.append(d)
+            LISTE_CHOIX.append(d)
+  
+
+            try:
+                if d[0] == 's':
+                    print(d[0])
+                    print(len(LISTE_CHOIX))
+
+            except:
+                pass
+            
             if d == 'STOP':
                 continuer_jeu = 0
             if d == 'M':
-                print('M')
                 liste1 = ['right', 'left', 'top']
                 choix = random.choice(liste1)
-                print(choix)
-                d = dk.deplacer(choix)
+        
+                dep = dk.deplacer(choix)
+        
 
                 
         #Affichages aux nouvelles positions
