@@ -88,19 +88,24 @@ class Perso:
 
         b = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
 
+        if int(self.x)/30 == 0 and  int(self.y)/30 == 0:
+            pass
+
+
         if direction == 'droite':
- 
+
             if self.case_x < (nombre_sprite_cote - 1):
-                if self.niveau.structure[self.case_y][self.case_x+1] != 'm':
+                if self.niveau.structure[self.case_y][self.case_x+1] != 'm'\
+                   and self.niveau.structure[self.case_y][self.case_x+1] != 'M':
                                 
                     self.case_x += 1
                     LISTE.append((self.x, self.y))
             
                     self.x = self.case_x * taille_sprite
-                    if self.niveau.structure[self.case_y][self.case_x-1] == 'm':
+                    if self.niveau.structure[self.case_y][self.case_x+1] == 'm':
                         
-                        print(int(self.x)/30, int(self.y)/30)
-
+                        print('mtn', int(self.x)/30, int(self.y)/30)
+                        print('d')
                         x = int(self.x / 30)
                         y = int(self.y / 30)
                         
@@ -108,7 +113,7 @@ class Perso:
                         with open('n1','r') as file:
                             a = file.read()
                             filee.append(a)
-
+                        #print(filee)
                         filee = " ".join(filee)
                         #recup par grille
                         c = 0
@@ -118,11 +123,10 @@ class Perso:
 
                             else:
                                 b[c].append(i)
-
-                        b[x+1][y] = 'M'
+                        #print(b[x+1][y])
+                        b[y][x+1] = 'M'
                         
                        
-
                         c = []
 
                         for i in b:
@@ -130,26 +134,35 @@ class Perso:
                             c.append(i)
 
                         c = "\n".join(c)
-                        print(c)
-                                                
-                                                
+                        #print(c)
+                        
+                        with open('n1','w') as file:
+                            file.write(str(c))
+                           
                         return 'STOP'
+                    
+                elif self.niveau.structure[self.case_y][self.case_x+1] == 'M':
+                     return 'M'
                     
                 #Image dans la bonne direction
                 self.direction = self.droite
                 return LISTE
-                
+
+            else:
+                pass
+
         #Déplacement vers la gauche
         if direction == 'gauche':
             if self.case_x > 0:
-                 if self.niveau.structure[self.case_y][self.case_x-1] != 'm':
+                 if self.niveau.structure[self.case_y][self.case_x-1] != 'm'\
+                    and self.niveau.structure[self.case_y][self.case_x-1] != 'M':
                     self.case_x -= 1
                     LISTE.append((self.x, self.y))
                     self.x = self.case_x * taille_sprite
                     if self.niveau.structure[self.case_y][self.case_x-1] == 'm':
                         
-                        print(int(self.x)/30, int(self.y)/30)
-
+                        print('mtn', int(self.x)/30, int(self.y)/30)
+                        print('g')
                         x = int(self.x / 30)
                         y = int(self.y / 30)
                         
@@ -168,7 +181,7 @@ class Perso:
                             else:
                                 b[c].append(i)
 
-                        b[x+1][y]  = 'M'
+                        b[y][x-1]  = 'M'
                         
                         
 
@@ -179,24 +192,34 @@ class Perso:
                             c.append(i)
 
                         c = "\n".join(c)
-                        print(c)
+                        #print(c)
                         
+                        with open('n1','w') as file:
+                            file.write(str(c))
                         return 'STOP'
+                    
+                 elif self.niveau.structure[self.case_y][self.case_x-1] == 'M':
+                    return 'M'
                     
                  self.direction = self.gauche
                  return LISTE
-        
+
+            else:
+                pass
+
         #Déplacement vers le haut
         if direction == 'haut':
             if self.case_y > 0:
-                if self.niveau.structure[self.case_y-1][self.case_x] != 'm':
+
+                if self.niveau.structure[self.case_y-1][self.case_x] != 'm'\
+                   and self.niveau.structure[self.case_y-1][self.case_x] != 'M':
                     self.case_y -= 1
                     LISTE.append((self.x, self.y))
                     self.y = self.case_y * taille_sprite
-                    if self.niveau.structure[self.case_y][self.case_x-1] == 'm':
-                        
-                        print(int(self.x)/30, int(self.y)/30)
-
+                    if self.niveau.structure[self.case_y-1][self.case_x] == 'm':
+                      
+                        print('mtn', int(self.x)/30, int(self.y)/30)
+                        print('h')
                         x = int(self.x / 30)
                         y = int(self.y / 30)
                         
@@ -208,15 +231,17 @@ class Perso:
                         filee = " ".join(filee)
                         #recup par grille
                         c = 0
+         
                         for i in filee:
+    
                             if i == "\n":
                                 c+=1
 
                             else:
                                 b[c].append(i)
 
-                        b[x+1][y] = 'M'
-                        
+                        b[y-1][x] = 'M'
+                 
                      
 
                         c = []
@@ -227,23 +252,33 @@ class Perso:
 
                         c = "\n".join(c)
                         print(c)
-                        
+                        with open('n1','w') as file:
+                            file.write(str(c))
+
                         return 'STOP'
+
+                    
+                elif self.niveau.structure[self.case_y-1][self.case_x] == 'M':
+                    return 'M'
+
                     
                 self.direction = self.haut
                 return LISTE
+            else:
+                pass
         
         #Déplacement vers le bas
         if direction == 'bas':
             if self.case_y < (nombre_sprite_cote - 1):
-                if self.niveau.structure[self.case_y+1][self.case_x] != 'm':
+                if self.niveau.structure[self.case_y+1][self.case_x] != 'm'\
+                   and self.niveau.structure[self.case_y+1][self.case_x] != 'M':
                     self.case_y += 1
                     LISTE.append((self.x, self.y))
                     self.y = self.case_y * taille_sprite
-                    if self.niveau.structure[self.case_y][self.case_x-1] == 'm':
+                    if self.niveau.structure[self.case_y+1][self.case_x] == 'm':
                         
-                        print(int(self.x)/30, int(self.y)/30)
-
+                        print('mtn', int(self.x)/30, int(self.y)/30)
+                        print('b')
                         x = int(self.x / 30)
                         y = int(self.y / 30)
                         
@@ -253,18 +288,20 @@ class Perso:
                             filee.append(a)
 
                         filee = " ".join(filee)
+
+                        
                         #recup par grille
                         c = 0
                         for i in filee:
+                   
                             if i == "\n":
                                 c+=1
 
                             else:
                                 b[c].append(i)
-
-                        b[x+1][y] = 'M'
+                        print(x,y)
+                        b[y+1][x] = 'M'
                         
-
                         c = []
 
                         for i in b:
@@ -273,12 +310,19 @@ class Perso:
 
                         c = "\n".join(c)
                         print(c)
-                        
+                        with open('n1','w') as file:
+                            file.write(str(c))
+                            
                         return 'STOP'
+                    
+                elif self.niveau.structure[self.case_y+1][self.case_x] == 'M':
+                    return 'M'
+
                     
                 self.direction = self.bas
                 return LISTE
-
+            else:
+                pass
 
         
 
