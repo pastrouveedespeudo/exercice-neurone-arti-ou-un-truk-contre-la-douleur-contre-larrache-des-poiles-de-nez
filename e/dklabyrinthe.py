@@ -144,33 +144,61 @@ while continuer:
         liste = ['right', 'left', 'top', 'bot']
         choix = random.choice(liste)
 
-                        
+        print(choix)
         if choix == 'right':
             a = dk.deplacer('droite')
             LISTE_CHOIX.append(choix)
             LISTE_CASE.append(a)
             if a == 'STOP':
                 continuer_jeu = 0
-        
+            if a == 'M':
+                print('M')
+                liste1 = ['left', 'top', 'bot']
+                choix = random.choice(liste1)
+                print(choix)
+                a = dk.deplacer(choix)
+
+
+                
         elif choix == 'left':
             b = dk.deplacer('gauche')
             LISTE_CHOIX.append(choix)
             LISTE_CASE.append(b)
             if b == 'STOP':
                 continuer_jeu = 0
+            if b == 'M':
+                print('M')
+                liste1 = ['right', 'top', 'bot']
+                choix = random.choice(liste1)
+                print(choix)
+                b = dk.deplacer(choix)
+                
         elif choix == 'top':
             c = dk.deplacer('haut')
             LISTE_CHOIX.append(choix)
             LISTE_CASE.append(c)
             if c == 'STOP':
                 continuer_jeu = 0
-                
+            if c == 'M':
+               print('M')
+               liste1 = ['right','left', 'bot']
+               choix = random.choice(liste1)
+               print(choix)
+               c = dk.deplacer(choix)
+               
         elif choix == 'bot':
             d = dk.deplacer('bas')
             LISTE_CHOIX.append(choix)
             LISTE_CASE.append(d)
             if d == 'STOP':
                 continuer_jeu = 0
+            if d == 'M':
+                print('M')
+                liste1 = ['right', 'left', 'top']
+                choix = random.choice(liste1)
+                print(choix)
+                d = dk.deplacer(choix)
+
                 
         #Affichages aux nouvelles positions
         fenetre.blit(fond, (0,0))
