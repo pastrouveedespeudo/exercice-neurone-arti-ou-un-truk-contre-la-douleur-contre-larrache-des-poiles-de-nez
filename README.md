@@ -1,5 +1,8 @@
 https://openclassrooms.com/fr/courses/1399541-interface-graphique-pygame-pour-python/1400238-tp-dk-labyrinthe
 
+
+#ok pour te récompenser une fois que t'as fini la boucle pour si c un mur choisis un autre direction t'as le droit de te fire qu'i lapprend ou son les mur le dango
+
 #j'ai juste inverser le x et le y et y'a un bug quand il est sur le départ et des fois ca bug chpas
 
 #et faut faire une boucle tant que c un M change de position
