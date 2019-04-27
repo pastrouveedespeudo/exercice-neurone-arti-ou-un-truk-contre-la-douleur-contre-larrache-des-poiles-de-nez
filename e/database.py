@@ -14,7 +14,7 @@ class create_base:
 
         self.cursor = self.connexion.cursor()
         
-        self.cursor.execute("""CREATE DATABASE POLUTION""")
+        self.cursor.execute("""CREATE DATABASE dkdk""")
         self.connexion.commit()
 
 class connexion_database:
@@ -25,34 +25,16 @@ class connexion_database:
                                                  password=PASSWORD)
         self.cursor = self.connexion.cursor()
 
-        self.cursor.execute("""use POLUTION""")
+        self.cursor.execute("""use dkdk""")
         self.connexion.commit()
 
 
 class table:
     def creation_table_donnée(self):
         connexion_database.connexion(self)
-        self.cursor.execute("""create table ville(
+        self.cursor.execute("""create table move(
                             id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-                            nom_ville varchar(100),
-                            date INT,
-                            heure_donnée INT,
-                            pression varchar(100),
-                            vent varchar(100),
-                            météo varchar(100),
-                            climat varchar(100),
-                            saison varchar(100),
-                            ville_pollué varchar(100),
-                            REGION_INDUSTRIEL_POLLUEE varchar(100),
-                            POPULATION_ACTIVE_HABITANT varchar(100),
-                            TRAFIQUE varchar(100),
-                            HEURE varchar(100),
-                            POINTE varchar(100),
-                            WEEKEND varchar(100),
-                            BOUCHON varchar(100),
-                            ACTIVITE_EXEPTIONNELLE varchar(100),
-                            nombre_particule varchar(100),
-                            particule varchar(100),
+                            move varchar(100),
                             PRIMARY KEY(id) )
                             ENGINE=InnoDB;
                             
@@ -63,15 +45,14 @@ class table:
 
 
 class insertion_table:
-    def insertion_meteo(self, ville, date, heure_donnée, pressure, weather, wind):
+    def insertion_meteo(self, para):
         connexion_database.connexion(self)
         
-        sql = ("""insert into ville
-                        (nom_ville, date, heure_donnée, pression, météo, vent)
-                         values(%s, %s, %s, %s, %s, %s);""")
+        sql = ("""insert into move
+                        (move)
+                         values(%s);""")
 
-        values = (ville, date, heure_donnée,
-                  pressure, weather, wind)
+        values = (para)
 
         
         self.cursor.execute(sql, values)
@@ -176,21 +157,11 @@ class insertion_table:
 
 class visualisation_table:
     
-    def visualisation(self, ville):
+    def visualisation(self):
         connexion_database.connexion(self)
 
-        self.cursor.execute("""SELECT date, heure_donnée,
-                            pression, météo, vent, climat,
-                            saison, ville_pollué,
-                            REGION_INDUSTRIEL_POLLUEE,
-                            POPULATION_ACTIVE_HABITANT,
-                            TRAFIQUE, HEURE, POINTE, WEEKEND,
-                            BOUCHON, ACTIVITE_EXEPTIONNELLE,
-                            particule
-                            FROM ville
-                            WHERE nom_ville = %s
-                            ORDER BY particule
-                            """, (ville,))
+        self.cursor.execute("""SELECT * from move;
+                            """)
                            
         
         rows = self.cursor.fetchall()
@@ -526,12 +497,15 @@ class creation_condition:
 
     def modif(self):
         connexion_database.connexion(self)
-        self.cursor.execute("""UPDATE ville
-                            SET ACTIVITE_EXEPTIONNELLE = 'non_manifestation'
-                            WHERE date = 264""")
+        self.cursor.execute("""insert into move (move)
+                            VALUES ('JBJBJBJB')""")
         self.connexion.commit()
     
 #if __name__ == "__main__":
+
+
+    #creation_condition = creation_condition()
+    #creation_condition.modif()
 
     #partie database creation    
     #create_base = create_base()
