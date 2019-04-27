@@ -49,7 +49,7 @@ class Niveau:
                 #On calcule la position réelle en pixels
                 x = num_case * taille_sprite
                 y = num_ligne * taille_sprite
-                if sprite == 'm':		   #m = Mur
+                if sprite == 'm' or sprite == 'M':		   #m = Mur
                     fenetre.blit(mur, (x,y))
                 elif sprite == 'd':		   #d = Départ
                     fenetre.blit(depart, (x,y))
@@ -83,18 +83,58 @@ class Perso:
     def deplacer(self, direction):
         """Methode permettant de déplacer le personnage"""
         LISTE = []
-        #Déplacement vers la droite
+
+        filee = []
+
+        b = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
+
         if direction == 'droite':
-            #Pour ne pas dépasser l'écran
+ 
             if self.case_x < (nombre_sprite_cote - 1):
                 if self.niveau.structure[self.case_y][self.case_x+1] != 'm':
                                 
                     self.case_x += 1
                     LISTE.append((self.x, self.y))
-                    #Calcul de la position "réelle" en pixel
+            
                     self.x = self.case_x * taille_sprite
                     if self.niveau.structure[self.case_y][self.case_x-1] == 'm':
+                        
+                        print(int(self.x)/30, int(self.y)/30)
+
+                        x = int(self.x / 30)
+                        y = int(self.y / 30)
+                        
+                        #ouverture
+                        with open('n1','r') as file:
+                            a = file.read()
+                            filee.append(a)
+
+                        filee = " ".join(filee)
+                        #recup par grille
+                        c = 0
+                        for i in filee:
+                            if i == "\n":
+                                c+=1
+
+                            else:
+                                b[c].append(i)
+
+                        b[x+1][y] = 'M'
+                        
+                       
+
+                        c = []
+
+                        for i in b:
+                            i = "".join(i)
+                            c.append(i)
+
+                        c = "\n".join(c)
+                        print(c)
+                                                
+                                                
                         return 'STOP'
+                    
                 #Image dans la bonne direction
                 self.direction = self.droite
                 return LISTE
@@ -107,7 +147,42 @@ class Perso:
                     LISTE.append((self.x, self.y))
                     self.x = self.case_x * taille_sprite
                     if self.niveau.structure[self.case_y][self.case_x-1] == 'm':
+                        
+                        print(int(self.x)/30, int(self.y)/30)
+
+                        x = int(self.x / 30)
+                        y = int(self.y / 30)
+                        
+                        #ouverture
+                        with open('n1','r') as file:
+                            a = file.read()
+                            filee.append(a)
+
+                        filee = " ".join(filee)
+                        #recup par grille
+                        c = 0
+                        for i in filee:
+                            if i == "\n":
+                                c+=1
+
+                            else:
+                                b[c].append(i)
+
+                        b[x+1][y]  = 'M'
+                        
+                        
+
+                        c = []
+
+                        for i in b:
+                            i = "".join(i)
+                            c.append(i)
+
+                        c = "\n".join(c)
+                        print(c)
+                        
                         return 'STOP'
+                    
                  self.direction = self.gauche
                  return LISTE
         
@@ -119,7 +194,42 @@ class Perso:
                     LISTE.append((self.x, self.y))
                     self.y = self.case_y * taille_sprite
                     if self.niveau.structure[self.case_y][self.case_x-1] == 'm':
+                        
+                        print(int(self.x)/30, int(self.y)/30)
+
+                        x = int(self.x / 30)
+                        y = int(self.y / 30)
+                        
+                        #ouverture
+                        with open('n1','r') as file:
+                            a = file.read()
+                            filee.append(a)
+
+                        filee = " ".join(filee)
+                        #recup par grille
+                        c = 0
+                        for i in filee:
+                            if i == "\n":
+                                c+=1
+
+                            else:
+                                b[c].append(i)
+
+                        b[x+1][y] = 'M'
+                        
+                     
+
+                        c = []
+
+                        for i in b:
+                            i = "".join(i)
+                            c.append(i)
+
+                        c = "\n".join(c)
+                        print(c)
+                        
                         return 'STOP'
+                    
                 self.direction = self.haut
                 return LISTE
         
@@ -131,7 +241,41 @@ class Perso:
                     LISTE.append((self.x, self.y))
                     self.y = self.case_y * taille_sprite
                     if self.niveau.structure[self.case_y][self.case_x-1] == 'm':
+                        
+                        print(int(self.x)/30, int(self.y)/30)
+
+                        x = int(self.x / 30)
+                        y = int(self.y / 30)
+                        
+                        #ouverture
+                        with open('n1','r') as file:
+                            a = file.read()
+                            filee.append(a)
+
+                        filee = " ".join(filee)
+                        #recup par grille
+                        c = 0
+                        for i in filee:
+                            if i == "\n":
+                                c+=1
+
+                            else:
+                                b[c].append(i)
+
+                        b[x+1][y] = 'M'
+                        
+
+                        c = []
+
+                        for i in b:
+                            i = "".join(i)
+                            c.append(i)
+
+                        c = "\n".join(c)
+                        print(c)
+                        
                         return 'STOP'
+                    
                 self.direction = self.bas
                 return LISTE
 
