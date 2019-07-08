@@ -79,23 +79,57 @@ def serialisation(liste):
             for cle, valeur in apahabet.items():
                 if j == cle:
                     liste_ephemere.append(valeur)
+                    
+        liste_ephemere  = sum(liste_ephemere)
+        if i[1] == 0:
+            liste_ephemere = - liste_ephemere
+            
+        nouvelle_liste.append(liste_ephemere)
 
-        nouvelle_liste.append([liste_ephemere, i[1]])
 
+    garcon = []
+    fille = []
 
     for i in nouvelle_liste:
-        print(i)
+        if i < 0:
+            fille.append(i)
+        else:
+            garcon.append(i)
+
+        
+    return garcon, fille
 
 
+def matrice(garcon, fille):
+
+    features = np.vstack([garcon])
+    features1 = np.vstack([fille])
+
+    c = 0
+    for i in fille:
+        c+=1
+
+    garcon = garcon[:c]
 
 
+    row = 5
+    #row = c
+
+    features = np.vstack([fille, garcon])
+    targets = np.concatenate((np.zeros(row), np.zeros(row) + 1))
+
+    print(targets)
+
+    
+    
 
 if __name__ == "__main__":
 
     TEXT = 'prénom.txt'
     
     liste = ouverture(TEXT)
-    serialisation(liste)
+    garcon, fille = serialisation(liste)
+    matrice(garcon, fille)
     
 
 
