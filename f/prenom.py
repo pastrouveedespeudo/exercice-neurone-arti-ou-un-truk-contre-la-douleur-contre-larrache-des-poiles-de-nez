@@ -45,82 +45,74 @@ def ouverture(text):
 
 def serialisation(liste):
 
-    apahabet = {"a":0.1,
-                "b":0.2,
-                "c":0.3,
-                "d":0.4,
-                "e":0.5,
-                "f":0.6,
-                "g":0.7,
-                "h":0.8,
-                "i":0.9,
-                "j":0.10,
-                "k":0.11,
-                "l":0.12,
-                "m":0.13,
-                "n":0.14,
-                "o":0.15,
-                "p":0.16,
-                "q":0.17,
-                "r":0.18,
-                "s":0.19,
-                "t":0.20,
-                "u":0.21,
-                "v":0.22,
-                "w":0.23,
-                "x":0.24,
-                "y":0.25,
-                "z":0.26}
+    alpahabet = {"a":1,
+                "b":2,
+                "c":3,
+                "d":4,
+                "e":5,
+                "f":6,
+                "g":7,
+                "h":8,
+                "i":9,
+                "j":10,
+                "k":11,
+                "l":12,
+                "m":13,
+                "n":14,
+                "o":15,
+                "p":16,
+                "q":17,
+                "r":18,
+                "s":19,
+                "t":20,
+                "u":21,
+                "v":22,
+                "w":23,
+                "x":24,
+                "y":25,
+                "z":26}
+
+
 
     nouvelle_liste = []
     for i in liste:
-        liste_ephemere = []
-        for j in i[0]:
-            for cle, valeur in apahabet.items():
-                if j == cle:
-                    liste_ephemere.append(valeur)
-                    
-        liste_ephemere  = sum(liste_ephemere)
-        if i[1] == 0:
-            liste_ephemere = - liste_ephemere
-            
-        nouvelle_liste.append(liste_ephemere)
-
-
-    garcon = []
-    fille = []
-
-    for i in nouvelle_liste:
-        if i < 0:
-            fille.append(i)
-        else:
-            garcon.append(i)
-
         
-    return garcon, fille
+        eph = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+               0,0,0,0,0,0,0,0,0,0]
+
+        for j in i[0]:
+            for cle, valeur in alpahabet.items():
+                if j == cle:
+                    eph[valeur - 1] = 1
+
+        eph[26] = i[1]
+                    
+        nouvelle_liste.append(eph)
+            
 
 
-def matrice(garcon, fille):
 
-    features = np.vstack([garcon])
-    features1 = np.vstack([fille])
-
-    c = 0
-    for i in fille:
-        c+=1
-
-    garcon = garcon[:c]
-
-
-    row = 5
-    #row = c
-
-    features = np.vstack([fille, garcon])
-    targets = np.concatenate((np.zeros(row), np.zeros(row) + 1))
-
-    print(targets)
 
     
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
     
 
 if __name__ == "__main__":
@@ -128,8 +120,8 @@ if __name__ == "__main__":
     TEXT = 'prénom.txt'
     
     liste = ouverture(TEXT)
-    garcon, fille = serialisation(liste)
-    matrice(garcon, fille)
+    serialisation(liste)
+
     
 
 
