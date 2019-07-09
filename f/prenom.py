@@ -47,6 +47,7 @@ def init_variable():
 def preactivation(entrée, poids, biais):
     
 ##  a = (entrée[0][0] * poids[c]) + (entrée[0][1] * poids[c + 1]) + biais
+## a = np.array(a) mais c buggué ici apres 1 tour... trouve ici
 
     return np.dot(entrée, poids) + biais
 
