@@ -1,1 +1,2 @@
-j'ai utiliser tous mes jokers pour reussir a chercher mnist fashion wooooooo toute laprem sté horrible
+par contre tes scrpt tensor sont dans tes fichier script de conda trouve comment utiliser un env conda
+
